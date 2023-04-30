@@ -9,6 +9,8 @@ import { AboutComponent } from './components/home/about/about.component';
 import { TeamComponent } from './components/home/team/team.component';
 import { ContactComponent } from './components/home/contact/contact.component';
 import { HomeComponent } from './views/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,10 @@ import { HomeComponent } from './views/home/home.component';
     AboutComponent,
     TeamComponent,
     ContactComponent,
-    HomeComponent
+    HomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
