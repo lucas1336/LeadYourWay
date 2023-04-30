@@ -12,6 +12,7 @@ import { HomeComponent } from './views/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BicycleTypesComponent } from './components/bicycle-types/bicycle-types.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TeamComponent,
     ContactComponent,
     HomeComponent,
+    BicycleTypesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, NgbModule],
   providers: [],

@@ -1,36 +1,36 @@
 <header class="pb-3 mb-5 border-bottom">
-  <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white">
-    <a class="navbar-brand" href="#">
-      <img src="images/logo.png" alt="brand logo" width="50" />
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse text-sm-center" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="#hero">Nosotros <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="#bicycles">Bicicletas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="#download">Descargar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="#contact">Contacto</a>
-        </li>
-      </ul>
-      <a class="btn nav-item btn-outline-primary mx-3" href="#"> Iniciar Sesión </a>
-      <a class="btn nav-item bg-dark text-light" href="#"> Registrarse </a>
+  <nav class="navbar navbar-expand-md fixed-top bg-white d-flex justify-content-between">
+    <div>
+      <a class="navbar-brand" href="#">
+        <img src="/assets/images/LogoLYW_2023-icon-removebg.png" alt="brand logo" width="50" />
+      </a>
+    </div>
+    <div class="mx-2">
+      <button class="navbar-toggler btn mx-4 btn-outline-dark nav-item" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse text-center">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/home/#hero">Nosotros <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/home/#bicycle-types">Bicicletas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/home/#download">Descargar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="/home/#contact">Contacto</a>
+          </li>
+        </ul>
+        <div class="d-none d-md-block ml-auto">
+          <a class="btn nav-item btn-outline-primary mx-3" href="#"> Iniciar Sesión </a>
+          <a class="btn nav-item bg-dark text-light" href="#"> Registrarse </a>
+        </div>
+      </div>
+      <div class="d-md-none">
+        <a class="btn nav-item btn-outline-primary mx-3" href="#"> Iniciar Sesión </a>
+        <a class="btn nav-item bg-dark text-light" href="#"> Registrarse </a>
+      </div>
     </div>
   </nav>
 </header>
