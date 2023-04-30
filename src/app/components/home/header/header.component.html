@@ -1,19 +1,36 @@
-<mat-toolbar color="primary" class="toolbar">
-  <mat-toolbar color="primary" class="toolbar">
-    <button mat-icon-button class="hamburger-button" (click)="toggleSidenav()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <a routerLink="/" class="logo-link">
-      <img src="assets/logo.png" alt="Logo" class="logo-image" />
+<header class="pb-3 mb-5 border-bottom">
+  <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white">
+    <a class="navbar-brand" href="#">
+      <img src="images/logo.png" alt="brand logo" width="50" />
     </a>
-    <span class="spacer"></span>
-    <div class="links-container">
-      <a routerLink="/page1" class="link">Page 1</a>
-      <a routerLink="/page2" class="link">Page 2</a>
-      <a routerLink="/page3" class="link">Page 3</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-sm-center" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#hero">Nosotros <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#bicycles">Bicicletas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#download">Descargar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#contact">Contacto</a>
+        </li>
+      </ul>
+      <a class="btn nav-item btn-outline-primary mx-3" href="#"> Iniciar Sesión </a>
+      <a class="btn nav-item bg-dark text-light" href="#"> Registrarse </a>
     </div>
-    <span class="spacer"></span>
-    <button mat-button class="login-button">Log In</button>
-    <button mat-raised-button class="signup-button">Sign Up</button>
-  </mat-toolbar>
-</mat-toolbar>
+  </nav>
+</header>
