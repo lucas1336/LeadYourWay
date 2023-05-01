@@ -15,6 +15,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BicycleTypesComponent } from './components/home/bicycle-types/bicycle-types.component';
 import { LoginComponent } from './views/login/login.component';
 import { SignupComponent } from './views/signup/signup.component';
+import { SearchBicycleComponent } from './views/search-bicycle/search-bicycle.component';
+import { CardBicyleComponent } from './components/card-bicyle/card-bicyle.component';
+import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,10 @@ import { SignupComponent } from './views/signup/signup.component';
     BicycleTypesComponent,
     LoginComponent,
     SignupComponent,
+    SearchBicycleComponent,
+    CardBicyleComponent,
+    ForgotPasswordComponent,
+    ProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, NgbModule],
   providers: [],
