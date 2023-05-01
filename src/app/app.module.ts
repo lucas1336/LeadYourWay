@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BicycleTypesComponent } from './components/home/bicycle-types/bicycle-types.component';
+import { LoginComponent } from './views/login/login.component';
+import { SignupComponent } from './views/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { BicycleTypesComponent } from './components/home/bicycle-types/bicycle-t
     ContactComponent,
     HomeComponent,
     BicycleTypesComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, NgbModule],
   providers: [],
