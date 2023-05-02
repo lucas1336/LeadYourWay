@@ -1,1 +1,40 @@
-<p>contact works!</p>
+<section id="contact" class="bg-light">
+  <div class="container contact-form">
+    <div class="contact-image">
+      <a href="https://www.flaticon.es/iconos-gratis/cohete" title="cohete iconos">
+        <img src="assets/images/rocket.png" alt="rocket_contact" />
+      </a>
+    </div>
+    <p class="h4 my-4 text-weight-bold">Déjanos un mensaje</p>
+    <form action="http://127.0.0.1:8081/messages/" method="POST">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="Tu Nombre..." id="name" />
+          </div>
+          <div class="form-group mt-2">
+            <input type="email" name="email" class="form-control" placeholder="Tu Email..." id="email" required />
+          </div>
+          <div class="form-group mt-2">
+            <input type="phone" name="phone" class="form-control" placeholder="Tu Teléfono..." id="phone" />
+          </div>
+        </div>
+        <div class="col-md-6 mt-2">
+          <div class="form-group">
+            <textarea
+              name="message"
+              class="form-control"
+              placeholder="Tu Mensaje..."
+              style="width: 100%; height: 150px"
+              id="message"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <div class="ml-3 form-group">
+          <button class="btn btn-primary">Enviar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
