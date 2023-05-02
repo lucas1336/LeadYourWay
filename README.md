@@ -8,7 +8,7 @@ Visit our website [here](https://lead-your-way-opensource.web.app/home)
 
 ## Technologies Used
 
-- ng-ootstra
+- ng-bootstrap
 - Angular
 
 ## Installation Instructions
