@@ -19,6 +19,9 @@ import { SearchBicycleComponent } from './views/search-bicycle/search-bicycle.co
 import { CardBicyleComponent } from './components/card-bicyle/card-bicyle.component';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { CardsBicycleService } from './service/cards-bicycle.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,8 +40,16 @@ import { ProfileComponent } from './views/profile/profile.component';
     ForgotPasswordComponent,
     ProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, NgbModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+  ],
+  providers: [CardsBicycleService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
