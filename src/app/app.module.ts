@@ -22,6 +22,7 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { CardsBicycleService } from './service/cards-bicycle.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { UserHeaderComponent } from './components/user-header/user-header.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     CardBicyleComponent,
     ForgotPasswordComponent,
     ProfileComponent,
+    UserHeaderComponent,
   ],
   imports: [
     BrowserModule,
