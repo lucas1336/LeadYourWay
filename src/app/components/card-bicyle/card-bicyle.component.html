@@ -23,7 +23,7 @@
             <li class="list-group-item">Precio por hora: {{bicycle.pricePerHour}} €</li>
             <li class="list-group-item">Disponible: {{bicycle.available ? 'Sí' : 'No'}}</li>
           </ul>
-          <a href="#" class="btn btn-primary mt-3" [ngClass]="{ 'disabled': !bicycle.available }">Alquilar</a>
+          <button href="#" class="btn btn-primary mt-3" [ngClass]="{ 'disabled': !bicycle.available }">Alquilar</button>
         </div>
       </div>
     </div>
