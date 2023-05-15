@@ -1,118 +1,75 @@
 <app-user-header></app-user-header>
-<div class="info-container">
-<div class="profile-info">
-  <img [src]="user.profileImage" alt="Profile Image" />
-  <div class="profile-details">
-    <h2>{{ user.name }}</h2>
-    <p>{{ user.email }}</p>
-    <p>{{ user.description }}</p>
+<section class="vh-100">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <app-profile-info [user]="user"></app-profile-info>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <app-payment-methods [user]="user"></app-payment-methods>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">Johnatan Smith</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">example@example.com</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">(097) 234-5678</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Mobile</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">(098) 765-4321</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <app-bicycle-list title="Bicicletas Arrendadas" [user]="user"></app-bicycle-list>
+          </div>
+          <div class="col-md-6">
+            <app-bicycle-list title="Bicicletas Arrendadas" [user]="user"></app-bicycle-list>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-<mat-divider></mat-divider>
-<section class="grid-container">
-    <div class="grid-item1">
-      <div class="Reservadas">
-        <h2>Bicicletas Reservadas</h2>
-        <mat-card class="example-card">
-          <mat-card-header>
-            <mat-card-title-group>
-              <mat-card-title>Enduro Camp</mat-card-title>
-              <mat-card-subtitle>Reservada</mat-card-subtitle>
-              <img mat-card-sm-image src="assets/images/image 19.png" />
-            </mat-card-title-group>
-          </mat-card-header>
-          <mat-card-content>
-            {{ longText }}
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-    <div class="grid-item2">
-      <div class="Favoritos">
-        <h2>Bicicletas Favoritas</h2>
-        <mat-card class="example-card">
-          <mat-card-header>
-            <mat-card-title-group>
-              <mat-card-title>Enduro Camp</mat-card-title>
-              <mat-card-subtitle>Reservada</mat-card-subtitle>
-              <img mat-card-sm-image src="assets/images/image 19.png" />
-            </mat-card-title-group>
-          </mat-card-header>
-          <mat-card-content>
-            {{ longText }}
-          </mat-card-content>
-        </mat-card>
-  
-        <mat-card class="example-card">
-          <mat-card-header>
-            <mat-card-title-group>
-              <mat-card-title>S-Works Enduro</mat-card-title>
-              <mat-card-subtitle>No reservada</mat-card-subtitle>
-              <img mat-card-sm-image src="assets/images/image 7.png" />
-            </mat-card-title-group>
-          </mat-card-header>
-          <mat-card-content>
-            {{ longText2 }}
-          </mat-card-content>
-        </mat-card>
-  
-        <mat-card class="example-card">
-          <mat-card-header>
-            <mat-card-title-group>
-              <mat-card-title>P. 3</mat-card-title>
-              <mat-card-subtitle>No reservada</mat-card-subtitle>
-              <img mat-card-sm-image src="assets/images/image 4.png" />
-            </mat-card-title-group>
-          </mat-card-header>
-          <mat-card-content>
-            {{ longText3 }}
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-    <div class="grid-item3">
-    <div class="Calendario">
-      <h2>Calendario</h2>
-      <img src="assets/images/image 12.png" width="215" height="178" style="margin-bottom: 4%;"/>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="FAQ">
-      <h2>FAQ</h2>
-      <button mat-raised-button style="background-color: #E16F58; color:white; margin-bottom: 5%;">Go to link</button>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="Ajustes">
-      <div class="ajustes_titulo">
-        <h2>Ajustes</h2>
-        <img src="assets/images/image 13.png" width="30" height="23" />
-      </div>
-      <div class="ajustes_contenido">
-        <div>
-          <h3>Ajustes</h3>
-          <img src="assets/images/image 14.png" />
-        </div>
-
-        <div>
-          <h3>Tema</h3>
-          <img src="assets/images/image 15.png" />
-        </div>
-
-        <div>
-          <h3>Información</h3>
-          <img src="assets/images/image 16.png" />
-        </div>
-
-        <div>
-          <h3>Seguridad</h3>
-          <img src="assets/images/image 17.png" />
-        </div>
-
-        <div>
-          <h3>Anuncios</h3>
-          <img src="assets/images/image 18.png" />
-        </div>
-      </div>
-    </div>
-    </div>
 </section>
