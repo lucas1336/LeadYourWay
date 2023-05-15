@@ -14,7 +14,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [],
@@ -37,7 +39,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatSidenavModule,
     MatListModule,
     MatDividerModule,
-    
+    MatOptionModule,
+    MatSelectModule,
   ],
 
   exports: [
@@ -59,7 +62,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatSidenavModule,
     MatListModule,
     MatDividerModule,
-    
+    MatOptionModule,
+    MatSelectModule,
   ],
 })
 export class MaterialModule {}

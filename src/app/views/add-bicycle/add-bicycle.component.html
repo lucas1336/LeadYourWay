@@ -1,0 +1,57 @@
+<div>
+  <h1>Agregar bicicleta</h1>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Ingrese el Titulo</mat-label>
+      <input matInput placeholder="Giant Trance X 2" />
+      <mat-icon matSuffix>title</mat-icon>
+    </mat-form-field>
+    <br /><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Escoge</mat-label>
+      <mat-select>
+        <mat-option value="small">Pequeña (S)</mat-option>
+        <mat-option value="medium">Mediana (M)</mat-option>
+        <mat-option value="large">Grande (L)</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br /><br />
+    <mat-form-field appearance="fill" floatLabel="always">
+      <mat-label>Monto</mat-label>
+      <input matInput type="number" class="example-right-align" placeholder="0" />
+      <span matTextPrefix>S/&nbsp;</span>
+      <span matTextSuffix>.00</span>
+    </mat-form-field>
+    <br /><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput rows="4" placeholder="Ingrese una descripción"></textarea>
+    </mat-form-field>
+    <br /><br />
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Ingrese la dirección</mat-label>
+        <input matInput placeholder="Av. Javier Prado 123" />
+        <mat-icon matSuffix>location_on</mat-icon>
+      </mat-form-field>
+      <br /><br />
+      <mat-form-field appearance="fill">
+        <mat-label>Ingrese el distrito</mat-label>
+        <input matInput placeholder="San Isidro" />
+        <mat-icon matSuffix>location_city</mat-icon>
+      </mat-form-field>
+      <br /><br />
+      <mat-form-field appearance="fill">
+        <mat-label>Ingrese la provincia</mat-label>
+        <input matInput placeholder="Lima" />
+        <mat-icon matSuffix>location_city</mat-icon>
+      </mat-form-field>
+    </div>
+    <br /><br />
+
+    <label for="imagen">Imagen:</label>
+    <input type="file" id="image" name="image" accept="image/*" multiple /><br /><br />
+
+    <input type="submit" value="Agregar bicicleta" />
+  </form>
+</div>
