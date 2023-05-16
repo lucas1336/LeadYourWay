@@ -1,57 +1,91 @@
 <div>
   <h1>Agregar bicicleta</h1>
-  <form>
-    <mat-form-field appearance="fill">
-      <mat-label>Ingrese el Titulo</mat-label>
-      <input matInput placeholder="Giant Trance X 2" />
-      <mat-icon matSuffix>title</mat-icon>
-    </mat-form-field>
-    <br /><br />
-    <mat-form-field appearance="fill">
-      <mat-label>Escoge</mat-label>
-      <mat-select>
-        <mat-option value="small">Pequeña (S)</mat-option>
-        <mat-option value="medium">Mediana (M)</mat-option>
-        <mat-option value="large">Grande (L)</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br /><br />
-    <mat-form-field appearance="fill" floatLabel="always">
-      <mat-label>Monto</mat-label>
-      <input matInput type="number" class="example-right-align" placeholder="0" />
-      <span matTextPrefix>S/&nbsp;</span>
-      <span matTextSuffix>.00</span>
-    </mat-form-field>
-    <br /><br />
-    <mat-form-field appearance="fill">
-      <mat-label>Descripción</mat-label>
-      <textarea matInput rows="4" placeholder="Ingrese una descripción"></textarea>
-    </mat-form-field>
-    <br /><br />
-    <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Ingrese la dirección</mat-label>
-        <input matInput placeholder="Av. Javier Prado 123" />
-        <mat-icon matSuffix>location_on</mat-icon>
-      </mat-form-field>
-      <br /><br />
-      <mat-form-field appearance="fill">
-        <mat-label>Ingrese el distrito</mat-label>
-        <input matInput placeholder="San Isidro" />
-        <mat-icon matSuffix>location_city</mat-icon>
-      </mat-form-field>
-      <br /><br />
-      <mat-form-field appearance="fill">
-        <mat-label>Ingrese la provincia</mat-label>
-        <input matInput placeholder="Lima" />
-        <mat-icon matSuffix>location_city</mat-icon>
-      </mat-form-field>
-    </div>
-    <br /><br />
-
-    <label for="imagen">Imagen:</label>
-    <input type="file" id="image" name="image" accept="image/*" multiple /><br /><br />
-
-    <input type="submit" value="Agregar bicicleta" />
-  </form>
+  <div class="formGroup">
+    <mat-stepper #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup" class="margin">
+          <ng-template matStepLabel>Completa información de tu bicicleta</ng-template>
+          <div class="flex">
+            <div class="flex">
+              <mat-form-field appearance="fill">
+                <mat-label>Ingrese el Titulo</mat-label>
+                <input matInput placeholder="Giant Trance X 2" formControlName="title" required />
+                <mat-icon matSuffix>title</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="flex">
+              <mat-form-field appearance="fill">
+                <mat-label>Escoge la talla</mat-label>
+                <mat-select required formControlName="size">
+                  <mat-option value="small">Pequeña (S)</mat-option>
+                  <mat-option value="medium">Mediana (M)</mat-option>
+                  <mat-option value="large">Grande (L)</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="flex">
+              <mat-form-field appearance="fill" floatLabel="always">
+                <mat-label>Monto</mat-label>
+                <input matInput type="number" placeholder="0" formControlName="price" required />
+                <span matTextPrefix>S/&nbsp;</span>
+                <span matTextSuffix>.00</span>
+              </mat-form-field>
+            </div>
+            <div class="flex">
+              <mat-form-field appearance="fill">
+                <mat-label>Descripción</mat-label>
+                <textarea matInput rows="4" placeholder="Ingrese una descripción" formControlName="description" required></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+          <div>
+            <button mat-button matStepperNext>Siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Ingrese su dirección</ng-template>
+          <div id="direccion">
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese la dirección</mat-label>
+              <input matInput placeholder="Av. Javier Prado 123" formControlName="address" required />
+              <mat-icon matSuffix>location_on</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese el distrito</mat-label>
+              <input matInput placeholder="San Isidro" formControlName="city" required />
+              <mat-icon matSuffix>location_city</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese la provincia</mat-label>
+              <input matInput placeholder="Lima" formControlName="state" required />
+              <mat-icon matSuffix>location_city</mat-icon>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Atrás</button>
+            <button mat-button matStepperNext>Siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Sube fotos de tu bicicleta</ng-template>
+        <label for="imagen">Imagen:</label>
+        <input type="file" id="image" name="image" accept="image/*" multiple required formControlName="image" /><br /><br />
+        <div>
+          <button mat-button matStepperPrevious>Atrás</button>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Listo!</ng-template>
+        <p>Ya terminsate?</p>
+        <div>
+          <button mat-button matStepperPrevious>Atrás</button>
+          <button mat-button (click)="stepper.reset()">Crear</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  </div>
 </div>

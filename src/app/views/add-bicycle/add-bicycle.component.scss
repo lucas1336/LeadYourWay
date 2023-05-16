@@ -1,0 +1,29 @@
+.formGroup {
+    width: 80%;
+    margin: 8% auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 10px;
+}
+
+.margin {
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 60px;
+}
+
+#flex-none {
+    flex: none;
+}
