@@ -23,6 +23,7 @@ import { CardsBicycleService } from './service/cards-bicycle.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserHeaderComponent } from './components/user-header/user-header.component';
+import { ProductPurchaseComponent } from './views/product-purchase/product-purchase.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { UserHeaderComponent } from './components/user-header/user-header.compon
     ForgotPasswordComponent,
     ProfileComponent,
     UserHeaderComponent,
+    ProductPurchaseComponent,
   ],
   imports: [
     BrowserModule,
