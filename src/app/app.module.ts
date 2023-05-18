@@ -8,10 +8,15 @@ import { FooterComponent } from './components/home/footer/footer.component';
 import { AboutComponent } from './components/home/about/about.component';
 import { TeamComponent } from './components/home/team/team.component';
 import { ContactComponent } from './components/home/contact/contact.component';
+import { ProfileInfoComponent } from './components/profile/profile-info/profile-info.component';
+import { PaymentMethodsComponent } from './components/profile/payment-methods/payment-methods.component';
+import { BicycleListComponent } from './components/profile/bicycle-list/bicycle-list.component';
 import { HomeComponent } from './views/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
+import { NgTemplateOutlet } from '@angular/common';
 import { BicycleTypesComponent } from './components/home/bicycle-types/bicycle-types.component';
 import { LoginComponent } from './views/login/login.component';
 import { SignupComponent } from './views/signup/signup.component';
@@ -43,6 +48,9 @@ import { ProductPurchaseComponent } from './views/product-purchase/product-purch
     ProfileComponent,
     UserHeaderComponent,
     ProductPurchaseComponent,
+    ProfileInfoComponent,
+    PaymentMethodsComponent,
+    BicycleListComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +60,7 @@ import { ProductPurchaseComponent } from './views/product-purchase/product-purch
     NgbModule,
     HttpClientModule,
     FormsModule,
+    NgbDatepicker,
   ],
   providers: [CardsBicycleService],
   bootstrap: [AppComponent],

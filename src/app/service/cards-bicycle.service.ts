@@ -5,12 +5,12 @@ import { catchError, retry } from 'rxjs/operators';
 import { CardsBicycle } from '../models/cards-bicycle.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CardsBicycleService {
   private base_Url = 'http://localhost:3000/bicycles';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   handleError(error: HttpErrorResponse) {
     console.error('An error occurred:', error.message);
@@ -18,10 +18,8 @@ export class CardsBicycleService {
   }
 
   getBicycles(): Observable<CardsBicycle[]> {
-    return this.http.get<CardsBicycle[]>(this.base_Url)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
+    return this.http
+      .get<CardsBicycle[]>(this.base_Url)
+      .pipe(retry(2), catchError(this.handleError));
   }
 }
