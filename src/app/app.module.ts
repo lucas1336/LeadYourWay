@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserHeaderComponent } from './components/user-header/user-header.component';
 import { ProductPurchaseComponent } from './views/product-purchase/product-purchase.component';
+import { AddBicycleComponent } from './views/add-bicycle/add-bicycle.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ProductPurchaseComponent } from './views/product-purchase/product-purch
     ProfileInfoComponent,
     PaymentMethodsComponent,
     BicycleListComponent,
+    AddBicycleComponent,
   ],
   imports: [
     BrowserModule,
