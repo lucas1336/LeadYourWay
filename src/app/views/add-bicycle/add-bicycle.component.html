@@ -132,7 +132,7 @@
         <p>Ya terminsate?</p>
         <div>
           <button mat-button matStepperPrevious>Atrás</button>
-          <button mat-button (click)="stepper.reset()">Crear</button>
+          <button mat-button (click)="stepper.reset(); onSubmit()">Crear</button>
         </div>
       </mat-step>
     </mat-stepper>

@@ -23,4 +23,8 @@ export class AddBicycleComponent {
   });
 
   constructor(private _formBuilder: FormBuilder) {}
+
+  onSubmit() {
+    alert('Form has been succesfully updated');
+  }
 }
