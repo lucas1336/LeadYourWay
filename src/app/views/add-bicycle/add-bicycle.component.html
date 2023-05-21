@@ -1,4 +1,5 @@
-<div>
+<app-user-header />
+<div class="page">
   <h1>Agregar bicicleta</h1>
   <div class="formGroup">
     <mat-stepper #stepper>
@@ -39,7 +40,7 @@
             </div>
           </div>
           <div>
-            <button mat-button matStepperNext>Siguiente</button>
+            <button mat-button matStepperNext class="btn-primary">Siguiente</button>
           </div>
         </form>
       </mat-step>
@@ -70,15 +71,13 @@
             </div>
           </div>
           <div>
-            <button mat-button matStepperPrevious>Atrás</button>
-            <button mat-button matStepperNext>Siguiente</button>
+            <button mat-button matStepperPrevious class="btn-primary">Atrás</button>
+            <button mat-button matStepperNext class="btn-primary margin-left">Siguiente</button>
           </div>
         </form>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Sube fotos de tu bicicleta</ng-template>
-        <!-- <label for="imagen">Imagen:</label>
-        <input type="file" id="image" name="image" accept="image/*" multiple required formControlName="image" /><br /><br /> -->
         <div class="container">
           <div class="header">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,16 +122,16 @@
           <input id="file" type="file" accept="image/*" multiple required formControlName="image" />
         </div>
         <div>
-          <button mat-button matStepperPrevious>Atrás</button>
-          <button mat-button matStepperNext>Siguiente</button>
+          <button mat-button matStepperPrevious class="btn-primary">Atrás</button>
+          <button mat-button matStepperNext class="btn-primary margin-left">Siguiente</button>
         </div>
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Listo!</ng-template>
         <p>Ya terminsate?</p>
         <div>
-          <button mat-button matStepperPrevious>Atrás</button>
-          <button mat-button (click)="stepper.reset(); onSubmit()">Crear</button>
+          <button mat-button matStepperPrevious class="btn-primary">Atrás</button>
+          <button mat-button (click)="stepper.reset(); onSubmit()" class="btn-primary margin-left">Crear</button>
         </div>
       </mat-step>
     </mat-stepper>
