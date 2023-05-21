@@ -4,16 +4,19 @@
   gap: 10px;
   margin-top: 20px;
 }
+
 .grid-item1 {
   grid-column: 1/2;
   display: flex;
   justify-content: center;
 }
+
 .grid-item2 {
   grid-column: 2/3;
   display: flex;
   justify-content: center;
 }
+
 .grid-item3 {
   grid-column: 3/3;
 }
@@ -22,16 +25,19 @@ h2 {
   text-align: center;
   font-size: x-large;
 }
+
 .example-card {
   max-width: 500px;
   margin-bottom: 5%;
 }
+
 .Calendario {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .FAQ {
   margin-top: 3%;
   display: flex;
@@ -39,23 +45,27 @@ h2 {
   justify-content: center;
   align-items: center;
 }
+
 .Ajustes {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: left;
 }
+
 .ajustes_titulo {
   padding-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .ajustes_contenido div {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .ajustes_contenido h3 {
   margin-top: 16px;
 }
@@ -67,14 +77,17 @@ h2 {
   height: 2rem;
   width: 2rem;
 }
+
 .custom-day.focused {
   background-color: #e6e6e6;
 }
+
 .custom-day.range,
 .custom-day:hover {
   background-color: rgb(2, 117, 216);
   color: white;
 }
+
 .custom-day.faded {
   background-color: rgba(2, 117, 216, 0.5);
 }

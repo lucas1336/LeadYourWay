@@ -1,14 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
 
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
-@import '~bootstrap-icons/font/bootstrap-icons.css';
+.btn-primary {
+  background-color: #e16f58 !important;
+  border-color: #e16f58 !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: #d78477 !important;
+  border-color: #d78477 !important;
+}
+
+.orange {
+  color: #e16f58 !important;
+  background-color: #e16f58 !important;
+}

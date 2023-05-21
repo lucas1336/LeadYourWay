@@ -1,23 +1,15 @@
 .search {
   max-width: 25%;
 }
-mat-paginator{
+
+mat-paginator {
   margin-top: auto;
   margin-bottom: 2rem;
 }
-.container{
+
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.btn-outline-primary {
-  border-color: #d78477;
-  color:#d78477;
-  font-weight: 500;
-}
-.btn-outline-primary:hover {
-  border-color: #d78477;
-  background-color: #d78477;
-  color: #fff;
 }
