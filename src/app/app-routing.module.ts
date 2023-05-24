@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'search', component: SearchBicycleComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'profile', component: ProfileComponent },
-  {path: 'paymenth-method', component: PaymenthMethodComponent}
+  {path: 'payment-method', component: PaymenthMethodComponent}
 ];
 
 @NgModule({

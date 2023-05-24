@@ -1,89 +1,52 @@
+<app-user-header></app-user-header>
 <div class="container">
-
-    <div class="card-container">
-
-        <div class="front">
-            <div class="image">
-                <img src="../../../assets/images/chip.png" alt="chip">
-                <img src="../../../assets/images/visa.png" alt="visa">
-            </div>
-            <div class="card-number-box">################</div>
-            <div class="flexbox">
-                <div class="box">
-                    <span>card holder</span>
-                    <div class="card-holder-name">full name</div>
+    <form (submit)="onSubmit()" #PaymentForm="ngForm">
+        <div class="row">
+            <h1 class="title">Métodos de pago</h1>
+            <div class="col">
+                <div class="inputBox">
+                    <span for="nombre">Nombre completo :</span>
+                    <input matInput type="text" id="nombre" placeholder="Example Name" [ngModelOptions]="{ standalone: true }" required [(ngModel)]="PaymentData.nombre">
                 </div>
-                <div class="box">
-                    <span>expires</span>
-                    <div class="expiration">
-                        <span class="exp-month">mm</span>
-                        <span class="exp-year">yy</span>
+
+                <div class="inputBox">
+                    <span for="card">Tarjetas que aceptamos :</span>
+                    <img src="../../../assets/images/card_img.png" alt="">
+                </div>
+                <div class="inputBox">
+                    <span for="numero_tarjeta">Número de tarjeta :</span>
+                    <input matInput type="text" id="numero_tarjeta" placeholder="1111-2222-3333-4444" [ngModelOptions]="{ standalone: true }" required [(ngModel)]="PaymentData.numero_tarjeta">
+                </div>
+                <div class="inputBox">
+                    <span for="nombre_tarjeta">Nombre de su tarjeta :</span>
+                    <input matInput type="text" id ="nombre_tarjeta" placeholder="Example card name" [ngModelOptions]="{ standalone: true }" required [(ngModel)]="PaymentData.nombre_tarjeta">
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="inputBox">
+                    <span for="email">Correo electrónico :</span>
+                    <input matInput type="email" id="correo" placeholder="example@example.com" [ngModelOptions]="{ standalone: true }" required [(ngModel)]="PaymentData.correo">
+                </div>
+                <div class="flex">
+                    <div class="inputBox">
+                        <span for="año_exp">Año de exp :</span>
+                        <input matInput type="text" id="año_exp" placeholder="2022" [ngModelOptions]="{ standalone: true }" required [(ngModel)]="PaymentData.exp_year">
+                    </div>
+                    <div class="inputBox">
+                        <span for="mes_exp">Mes de exp :</span>
+                        <input matInput type="text" id="mes_exp" placeholder="05" [ngModelOptions]="{ standalone: true }" required [(ngModel)]="PaymentData.mes_exp">
                     </div>
                 </div>
-            </div>
-        </div>
+                <div class="inputBox" style="margin-top:0">
+                    <span for="cvv">CVV :</span>
+                    <input matInput type="text" id="cvv" placeholder="1234" [ngModelOptions]="{ standalone: true }" required [(ngModel)]="PaymentData.cvv">
+                </div>
 
-        <div class="back">
-            <div class="stripe"></div>
-            <div class="box">
-                <span>cvv</span>
-                <div class="cvv-box"></div>
-                <img src="../../../assets/images/visa.png" alt="visa">
             </div>
+    
         </div>
-
-    </div>
-
-    <form action="">
-        <div class="inputBox">
-            <span>card number</span>
-            <input type="text" maxlength="16" class="card-number-input" (input)="updateCardNumberBox($event)" (mouseover)="unflipCard()">
-        </div>
-        <div class="inputBox">
-            <span>card holder</span>
-            <input type="text" class="card-holder-input" (input)="updateCardHolderName($event)" (mouseover)="unflipCard()">
-        </div>
-        <div class="flexbox">
-            <div class="inputBox">
-                <span>expiration mm</span>
-                <select name="" id="" class="month-input" (input)="updateExpMonth($event)" (mouseover)="unflipCard()">
-                    <option value="month" selected disabled>month</option>
-                    <option value="01/">01</option>
-                    <option value="02/">02</option>
-                    <option value="03/">03</option>
-                    <option value="04/">04</option>
-                    <option value="05/">05</option>
-                    <option value="06/">06</option>
-                    <option value="07/">07</option>
-                    <option value="08/">08</option>
-                    <option value="09/">09</option>
-                    <option value="10/">10</option>
-                    <option value="11/">11</option>
-                    <option value="12/">12</option>
-                </select>
-            </div>
-            <div class="inputBox">
-                <span>expiration yy</span>
-                <select name="" id="" class="year-input" (input)="updateExpYear($event)" (mouseover)="unflipCard()">
-                    <option value="year" selected disabled>year</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                    <option value="2027">2027</option>
-                    <option value="2028">2028</option>
-                    <option value="2029">2029</option>
-                    <option value="2030">2030</option>
-                </select>
-            </div>
-            <div class="inputBox">
-                <span>cvv</span>
-                <input type="text" maxlength="4" class="cvv-input" (input)="updateCvvBox($event)" (mouseover)="flipCard()">
-            </div>
-        </div>
-        <input type="submit" value="submit" class="submit-btn" (mouseover)="unflipCard()">
+        <button mat-button type="submit" class="submit-btn">Añadir método</button>
     </form>
 
 </div> 

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { PaymentMethod } from 'src/app/models/payment-method.model';
+import { PaymentMethodService } from 'src/app/service/payment-method.service';
 
 @Component({
   selector: 'app-paymenth-method',
@@ -6,69 +9,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./paymenth-method.component.scss']
 })
 export class PaymenthMethodComponent {
-  cardNumberInput: string = '';
-  cardHolderInput: string = '';
-  monthInput: string = '';
-  yearInput: string = '';
-  cvvInput: string = '';
+  @ViewChild('PaymentForm', {static: false})
+  PaymentForm!: NgForm;
+  PaymentData!: PaymentMethod;
 
-  constructor() {}
+  nombre: string='';
+  numero_tarjeta: string='';
+  nombre_tarjeta: string='';
+  correo: string='';
+  año_exp: string='';
+  mes_exp: string='';
 
-  ngOnInit(): void {
+  constructor(private paymentMethodService: PaymentMethodService) {
+    this.PaymentData= {} as PaymentMethod;
   }
 
-  updateCardNumberBox(event:any): void {
-    const cardNumberBox = document.querySelector('.card-number-box') as HTMLElement;
-    if (cardNumberBox) {
-      cardNumberBox.textContent = event.target.value;
+  onSubmit(){
+    if(this.PaymentForm.form.valid){
+      this.addPayment();
+      console.log('valid');
+    }else{
+      console.log('Invalid data');
     }
   }
 
-  updateCardHolderName(event:any): void {
-    const cardHolderName = document.querySelector('.card-holder-name') as HTMLElement;
-    if (cardHolderName) {
-      cardHolderName.textContent = event.target.value;
+  addPayment(){
+    this.PaymentData.id = 0;
+    console.log('PaymentData:', this.PaymentData);
+    this.paymentMethodService.createItem(this.PaymentData).subscribe(
+    (response) => {
+      console.log('Response:', response);
+    },
+    (error) => {
+      console.log('Error:', error);
     }
-  }
-
-  updateExpMonth(event:any): void {
-    const expMonth = document.querySelector('.exp-month') as HTMLElement;
-    if (expMonth) {
-      expMonth.textContent = event.target.value;
-    }
-  }
-
-  updateExpYear(event:any): void {
-    const expYear = document.querySelector('.exp-year') as HTMLElement;
-    if (expYear) {
-      expYear.textContent = event.target.value;
-    }
-  }
-
-  flipCard(): void {
-    const front = document.querySelector('.front') as HTMLElement;
-    const back = document.querySelector('.back') as HTMLElement;
-
-    if (front && back) {
-      front.style.transform = 'perspective(1000px) rotateY(-180deg)';
-      back.style.transform = 'perspective(1000px) rotateY(0deg)';
-    }
-  }
-
-  unflipCard(): void {
-    const front = document.querySelector('.front') as HTMLElement;
-    const back = document.querySelector('.back') as HTMLElement;
-
-    if (front && back) {
-      front.style.transform = 'perspective(1000px) rotateY(0deg)';
-      back.style.transform = 'perspective(1000px) rotateY(180deg)';
-    }
-  }
-
-  updateCvvBox(event:any): void {
-    const cvvBox = document.querySelector('.cvv-box') as HTMLElement;
-    if (cvvBox) {
-      cvvBox.textContent = event.target.value;
-    }
+  );
   }
 }
