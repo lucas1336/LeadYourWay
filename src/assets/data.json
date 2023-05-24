@@ -1,94 +1,106 @@
 {
-    "bicycles":[
-        {
-            "id": 1,
-            "model": "Bicicleta de montaña 1",
-            "description": "Bicicleta de montaña resistente y de alto rendimiento.",
-            "image": "https://th.bing.com/th/id/OIG.j6i1RmFSHNoMQtnR1575?pid=ImgGn",
-            "averageRating": 4.2,
-            "pricePerHour": 5.5,
-            "available": true
-        },
-        {
-            "id": 2,
-            "model": "Bicicleta de montaña 2",
-            "description": "Bicicleta de montaña con suspensión delantera y trasera.",
-            "image": "https://th.bing.com/th/id/OIG.ob2VCcF5d.LNu3d84MbV?pid=ImgGn",
-            "averageRating": 4.6,
-            "pricePerHour": 6.0,
-            "available": false
-          },
-          {
-            "id": 3,
-            "model": "Bicicleta de carretera 1",
-            "description": "Bicicleta de carretera ligera y rápida para largas distancias.",
-            "image": "https://www.tradeinn.com/f/13826/138267694/specialized-bicicleta-carretera-allez-e5.jpg",
-            "averageRating": 4.8,
-            "pricePerHour": 7.0,
-            "available": true
-          },
-          {
-            "id": 4,
-            "model": "Bicicleta de carretera 2",
-            "description": "Bicicleta de carretera aerodinámica y de alto rendimiento.",
-            "image": "https://falabella.scene7.com/is/image/FalabellaPE/881952148_1?wid=1500&hei=1500&qlt=70",
-            "averageRating": 4.1,
-            "pricePerHour": 6.5,
-            "available": true
-          },
-          {
-            "id": 5,
-            "model": "Bicicleta eléctrica 1",
-            "description": "Bicicleta eléctrica cómoda y fácil de usar.",
-            "image": "https://th.bing.com/th/id/OIG.XOZHJv_evC1mXov5jhGu?pid=ImgGn",
-            "averageRating": 4.4,
-            "pricePerHour": 8.0,
-            "available": false
-          },
-          {
-            "id": 6,
-            "model": "Bicicleta eléctrica 2",
-            "description": "Bicicleta eléctrica plegable y portátil.",
-            "image": "https://th.bing.com/th/id/OIG.Vglj5JJgAgktJUjJAEz9?pid=ImgGn",
-            "averageRating": 3.9,
-            "pricePerHour": 7.5,
-            "available": true
-          },
-          {
-            "id": 7,
-            "model": "Bicicleta urbana 1",
-            "description": "Bicicleta urbana cómoda y fácil de manejar.",
-            "image": "https://th.bing.com/th/id/OIG.7XeujOOKpQHhxHmq42pq?pid=ImgGn",
-            "averageRating": 4.7,
-            "pricePerHour": 4.5,
-            "available": true
-          },
-          {
-            "id": 8,
-            "model": "Bicicleta urbana 2",
-            "description": "Bicicleta urbana versátil y duradera.",
-            "image": "https://cdn.leonardo.ai/users/516a5b4a-be35-4860-a228-f162f80ac9de/generations/e9ebc09c-aa91-4acb-91fa-e9e5373a1f82/Leonardo_Diffusion_bicicleta_urbana_moderna_0.jpg",
-            "averageRating": 4.3,
-            "pricePerHour": 4.0,
-            "available": false
-          },
-          {
-              "id": 9,
-              "model": "Bicicleta de paseo 1",
-              "description": "Bicicleta de paseo clásica y elegante para paseos tranquilos.",
-              "image": "https://cdn.leonardo.ai/users/516a5b4a-be35-4860-a228-f162f80ac9de/generations/0f617d5e-5af6-47ce-bd26-ec6e58ba092f/Leonardo_Diffusion_bicicleta_urbana_2022_0.jpg",
-              "averageRating": 3.8,
-              "pricePerHour": 4.0,
-              "available": true
-          },
-          {
-              "id": 10,
-              "model": "Bicicleta de paseo 2",
-              "description": "Bicicleta de paseo con estilo vintage y cómoda para el uso diario.",
-              "image": "https://cdn.leonardo.ai/users/516a5b4a-be35-4860-a228-f162f80ac9de/generations/6e8dc69e-b9b6-4756-89bc-ea4c001bf0fa/Leonardo_Diffusion_bicicleta_urbana_0.jpg",
-              "averageRating": 4.5,
-              "pricePerHour": 4.2,
-              "available": true
-          }
-    ]
+  "bicycles": [
+    {
+      "id": 1,
+      "model": "Bicicleta de montaña 1",
+      "description": "Bicicleta de montaña resistente y de alto rendimiento.",
+      "image": "https://th.bing.com/th/id/OIG.j6i1RmFSHNoMQtnR1575?pid=ImgGn",
+      "averageRating": 4.2,
+      "pricePerHour": 5.5,
+      "available": true
+    },
+    {
+      "id": 2,
+      "model": "Bicicleta de montaña 2",
+      "description": "Bicicleta de montaña con suspensión delantera y trasera.",
+      "image": "https://th.bing.com/th/id/OIG.ob2VCcF5d.LNu3d84MbV?pid=ImgGn",
+      "averageRating": 4.6,
+      "pricePerHour": 6,
+      "available": false
+    },
+    {
+      "id": 3,
+      "model": "Bicicleta de carretera 1",
+      "description": "Bicicleta de carretera ligera y rápida para largas distancias.",
+      "image": "https://www.tradeinn.com/f/13826/138267694/specialized-bicicleta-carretera-allez-e5.jpg",
+      "averageRating": 4.8,
+      "pricePerHour": 7,
+      "available": true
+    },
+    {
+      "id": 4,
+      "model": "Bicicleta de carretera 2",
+      "description": "Bicicleta de carretera aerodinámica y de alto rendimiento.",
+      "image": "https://falabella.scene7.com/is/image/FalabellaPE/881952148_1?wid=1500&hei=1500&qlt=70",
+      "averageRating": 4.1,
+      "pricePerHour": 6.5,
+      "available": true
+    },
+    {
+      "id": 5,
+      "model": "Bicicleta eléctrica 1",
+      "description": "Bicicleta eléctrica cómoda y fácil de usar.",
+      "image": "https://th.bing.com/th/id/OIG.XOZHJv_evC1mXov5jhGu?pid=ImgGn",
+      "averageRating": 4.4,
+      "pricePerHour": 8,
+      "available": false
+    },
+    {
+      "id": 6,
+      "model": "Bicicleta eléctrica 2",
+      "description": "Bicicleta eléctrica plegable y portátil.",
+      "image": "https://th.bing.com/th/id/OIG.Vglj5JJgAgktJUjJAEz9?pid=ImgGn",
+      "averageRating": 3.9,
+      "pricePerHour": 7.5,
+      "available": true
+    },
+    {
+      "id": 7,
+      "model": "Bicicleta urbana 1",
+      "description": "Bicicleta urbana cómoda y fácil de manejar.",
+      "image": "https://th.bing.com/th/id/OIG.7XeujOOKpQHhxHmq42pq?pid=ImgGn",
+      "averageRating": 4.7,
+      "pricePerHour": 4.5,
+      "available": true
+    },
+    {
+      "id": 8,
+      "model": "Bicicleta urbana 2",
+      "description": "Bicicleta urbana versátil y duradera.",
+      "image": "https://cdn.leonardo.ai/users/516a5b4a-be35-4860-a228-f162f80ac9de/generations/e9ebc09c-aa91-4acb-91fa-e9e5373a1f82/Leonardo_Diffusion_bicicleta_urbana_moderna_0.jpg",
+      "averageRating": 4.3,
+      "pricePerHour": 4,
+      "available": false
+    },
+    {
+      "id": 9,
+      "model": "Bicicleta de paseo 1",
+      "description": "Bicicleta de paseo clásica y elegante para paseos tranquilos.",
+      "image": "https://cdn.leonardo.ai/users/516a5b4a-be35-4860-a228-f162f80ac9de/generations/0f617d5e-5af6-47ce-bd26-ec6e58ba092f/Leonardo_Diffusion_bicicleta_urbana_2022_0.jpg",
+      "averageRating": 3.8,
+      "pricePerHour": 4,
+      "available": true
+    },
+    {
+      "id": 10,
+      "model": "Bicicleta de paseo 2",
+      "description": "Bicicleta de paseo con estilo vintage y cómoda para el uso diario.",
+      "image": "https://cdn.leonardo.ai/users/516a5b4a-be35-4860-a228-f162f80ac9de/generations/6e8dc69e-b9b6-4756-89bc-ea4c001bf0fa/Leonardo_Diffusion_bicicleta_urbana_0.jpg",
+      "averageRating": 4.5,
+      "pricePerHour": 4.2,
+      "available": true
+    }
+  ],
+  "payment": [
+    {
+      "nombre": "ANDREA SOFIA ALFARO SALINAS",
+      "correo": "alfaros.andrea@gmail.com",
+      "numero_tarjeta": "123",
+      "exp_year": "123",
+      "mes_exp": "123",
+      "nombre_tarjeta": "123",
+      "cvv": "123",
+      "id": 1
+    }
+  ]
 }

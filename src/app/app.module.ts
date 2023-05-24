@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
 import { UserHeaderComponent } from './components/user-header/user-header.component';
 import { ProductPurchaseComponent } from './views/product-purchase/product-purchase.component';
 import { AddBicycleComponent } from './views/add-bicycle/add-bicycle.component';
+import { PaymenthMethodComponent } from './views/paymenth-method/paymenth-method.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AddBicycleComponent } from './views/add-bicycle/add-bicycle.component';
     PaymentMethodsComponent,
     BicycleListComponent,
     AddBicycleComponent,
+    PaymenthMethodComponent,
   ],
   imports: [
     BrowserModule,
