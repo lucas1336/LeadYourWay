@@ -31,6 +31,7 @@ import { UserHeaderComponent } from './components/user-header/user-header.compon
 import { ProductPurchaseComponent } from './views/product-purchase/product-purchase.component';
 import { AddBicycleComponent } from './views/add-bicycle/add-bicycle.component';
 import { PaymenthMethodComponent } from './views/paymenth-method/paymenth-method.component';
+import { NotFoundComponent } from './views/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { PaymenthMethodComponent } from './views/paymenth-method/paymenth-method
     BicycleListComponent,
     AddBicycleComponent,
     PaymenthMethodComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
