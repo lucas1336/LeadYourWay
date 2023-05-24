@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from './views/forgot-password/forgot-password
 import { ProfileComponent } from './views/profile/profile.component';
 import { ProductPurchaseComponent } from './views/product-purchase/product-purchase.component';
 import { AddBicycleComponent } from './views/add-bicycle/add-bicycle.component';
+import { NotFoundComponent } from './views/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'product-purchase', component: ProductPurchaseComponent },
   { path: 'create', component: AddBicycleComponent },
+  {path:'**', component:NotFoundComponent}
 ];
 
 @NgModule({
