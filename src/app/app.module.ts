@@ -28,6 +28,10 @@ import { CardsBicycleService } from './service/cards-bicycle.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserHeaderComponent } from './components/user-header/user-header.component';
+import { ProductPurchaseComponent } from './views/product-purchase/product-purchase.component';
+import { AddBicycleComponent } from './views/add-bicycle/add-bicycle.component';
+import { PaymenthMethodComponent } from './views/paymenth-method/paymenth-method.component';
+import { NotFoundComponent } from './views/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -46,9 +50,13 @@ import { UserHeaderComponent } from './components/user-header/user-header.compon
     ForgotPasswordComponent,
     ProfileComponent,
     UserHeaderComponent,
+    ProductPurchaseComponent,
     ProfileInfoComponent,
     PaymentMethodsComponent,
     BicycleListComponent,
+    AddBicycleComponent,
+    PaymenthMethodComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

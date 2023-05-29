@@ -1,8 +1,8 @@
 <app-user-header></app-user-header>
 
-<div class="input-group search mx-auto mt-8">
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-  <button type="button" class="btn btn-outline-primary">search</button>
+<div class="input-group search mx-auto mt-8 pb-3 mb-4">
+  <input type="search" class="form-control rounded" placeholder="Ex. Bicicleta de montaña" aria-label="Search" aria-describedby="search-addon" />
+  <button type="button" class="btn btn-primary">Search</button>
 </div>
 
 <div>
@@ -10,9 +10,5 @@
 </div>
 
 <div class="container">
-  <mat-paginator [length]="100"
-  [pageSize]="10"
-  [pageSizeOptions]="[5, 10, 25, 100]"
-  aria-label="Select page">
-  </mat-paginator>
+  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"> </mat-paginator>
 </div>

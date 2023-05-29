@@ -1,11 +1,13 @@
 .search {
-  max-width: 500px;
+  max-width: 25%;
 }
-mat-paginator{
+
+mat-paginator {
   margin-top: auto;
   margin-bottom: 2rem;
 }
-.container{
+
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;

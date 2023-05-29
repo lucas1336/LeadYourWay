@@ -1,0 +1,33 @@
+#bicycle-types{
+    background-color: #f7f0ed;
+}
+
+img {
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    -o-transform: translateX(0px);
+    animation: float 6s ease-out infinite;
+    -webkit-animation: float 6s ease-out infinite;
+    -moz-animation: float 6s ease-out infinite;
+    -ms-animation: float 6s ease-out infinite;
+    -o-animation: float 6s ease-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(30px);
+        -webkit-transform: translateX(30px);
+        -moz-transform: translateX(30px);
+        -ms-transform: translateX(30px);
+        -o-transform: translateX(30px);
+}
+
+    100% {
+        transform: translateX(0px);
+    }
+}

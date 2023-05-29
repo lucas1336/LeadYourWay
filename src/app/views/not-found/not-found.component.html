@@ -1,0 +1,10 @@
+<app-user-header></app-user-header>
+<div class="container">
+  <h1>Page not found</h1>
+  <p>
+    La ruta <strong>{{ routePath }}</strong> no se encontró
+  </p>
+  <button mat-mini-fab class="btn-primary" aria-label="Back icon button" [routerLink]="['/home']">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</div>

@@ -6,6 +6,10 @@ import { SignupComponent } from './views/signup/signup.component';
 import { SearchBicycleComponent } from './views/search-bicycle/search-bicycle.component';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { ProductPurchaseComponent } from './views/product-purchase/product-purchase.component';
+import { AddBicycleComponent } from './views/add-bicycle/add-bicycle.component';
+import { PaymenthMethodComponent } from './views/paymenth-method/paymenth-method.component';
+import { NotFoundComponent } from './views/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,6 +19,10 @@ const routes: Routes = [
   { path: 'search', component: SearchBicycleComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'product-purchase', component: ProductPurchaseComponent },
+  { path: 'create', component: AddBicycleComponent },
+  { path: 'payment-method', component: PaymenthMethodComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
