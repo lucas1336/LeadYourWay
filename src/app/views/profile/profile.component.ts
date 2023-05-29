@@ -19,7 +19,43 @@ export class ProfileComponent {
       'Kirby',
       'kirby.hi@poyo.com',
       'https://ipfs.creary.net/ipfs/QmayCWVoB27yxuN4aum762sfZVrX7XsSEY6wJ16na4QUWQ',
-      'Cute guy'
+      'Cute guy',
+      [
+        {
+          id: 1,
+          name: 'Bicicleta fachera',
+          description:
+            'Bicicleta fachera de aro 27.5" de la marca Gotek, ideal para movilizarte a cualquier lugar que desees en tu día a día.',
+          price: 100,
+          image: 'https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg',
+        },
+        {
+          id: 2,
+          name: 'BMX',
+          description:
+            'Al aprovechar las ventajas de ajuste y conduccion para cada ciclista con su tamano de rueda ideal, y con una suspension optimizada gracias a nuestro Rx Tune especifico segun talla.',
+          price: 200,
+          image: 'https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg',
+        },
+      ],
+      [
+        {
+          id: 1,
+          name: 'Bicicleta no tan fachera',
+          description:
+            'Bicicleta fachera de aro 27.5" de la marca Gotek, ideal para movilizarte a cualquier lugar que desees en tu día a día.',
+          price: 100,
+          image: 'https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg',
+        },
+        {
+          id: 2,
+          name: 'Giant',
+          description:
+            'Al aprovechar las ventajas de ajuste y conduccion para cada ciclista con su tamano de rueda ideal, y con una suspension optimizada gracias a nuestro Rx Tune especifico segun talla.',
+          price: 200,
+          image: 'https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg',
+        },
+      ]
     );
   }
   longText = `Bicicleta montañera de aro 27.5" de la marca Gotek, ideal para movilizarte a cualquier lugar que desees en tu día a día.`;

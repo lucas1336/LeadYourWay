@@ -9,4 +9,5 @@ import { User } from 'src/app/models/profile-model';
 export class BicycleListComponent {
   @Input() user!: User;
   @Input() title!: String;
+  @Input() bicycles!: any[];
 }

@@ -63,10 +63,10 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <app-bicycle-list title="Bicicletas Arrendadas" [user]="user"></app-bicycle-list>
+            <app-bicycle-list title="Bicicletas Rentadas" [user]="user" [bicycles]="user.rentedBicycles"></app-bicycle-list>
           </div>
           <div class="col-md-6">
-            <app-bicycle-list title="Bicicletas Arrendadas" [user]="user"></app-bicycle-list>
+            <app-bicycle-list title="Bicicletas Arrendadas" [user]="user" [bicycles]="user.borrowedBicycles"></app-bicycle-list>
           </div>
         </div>
       </div>
