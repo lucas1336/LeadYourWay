@@ -46,7 +46,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Collaborators
 
 - [Lucas Ruiz](https://github.com/lucas1336/)
-- [Leonel Ortega]([https://github.com/leonel1301](https://www.youtube.com/watch?v=dQw4w9WgXcQ))
+- [Leonel Ortega](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 - [Oliver Tuesta](https://github.com/oliverTuesta)
-- Sofia Alfaro
-- Fabrizzio Castro
+- [Sofia Alfaro](https://github.com/asofialf)
+- [Fabrizzio Castro](https://github.com/FabrizCastro)
