@@ -24,7 +24,6 @@ import { SearchBicycleComponent } from './views/search-bicycle/search-bicycle.co
 import { CardBicyleComponent } from './components/card-bicyle/card-bicyle.component';
 import { ForgotPasswordComponent } from './views/forgot-password/forgot-password.component';
 import { ProfileComponent } from './views/profile/profile.component';
-import { CardsBicycleService } from './service/cards-bicycle.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserHeaderComponent } from './components/user-header/user-header.component';
@@ -32,6 +31,7 @@ import { ProductPurchaseComponent } from './views/product-purchase/product-purch
 import { AddBicycleComponent } from './views/add-bicycle/add-bicycle.component';
 import { PaymenthMethodComponent } from './views/paymenth-method/paymenth-method.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
+import { BicycleDetailComponent } from './views/bicycle-detail/bicycle-detail.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +57,7 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
     AddBicycleComponent,
     PaymenthMethodComponent,
     NotFoundComponent,
+    BicycleDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +69,6 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
     FormsModule,
     NgbDatepicker,
   ],
-  providers: [CardsBicycleService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

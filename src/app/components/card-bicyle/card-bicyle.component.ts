@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { CardsBicycle } from 'src/app/models/cards-bicycle.model';
-import { CardsBicycleService } from 'src/app/service/cards-bicycle.service';
+import { BicycleModule } from 'src/app/models/bicycle/bicycle.module';
+import { BicycleService } from 'src/app/services/bicycle.service';
 @Component({
   selector: 'app-card-bicyle',
   templateUrl: './card-bicyle.component.html',
-  styleUrls: ['./card-bicyle.component.scss']
+  styleUrls: ['./card-bicyle.component.scss'],
 })
 export class CardBicyleComponent {
-  bicycles: CardsBicycle[] = [];
-  
-  constructor(private cardsBicycleService: CardsBicycleService) { }
+  bicycles: BicycleModule[] = [];
 
-  ngOnInit(): void{
+  constructor(private bicycleService: BicycleService) {}
+
+  ngOnInit(): void {
     this.getBicycles();
   }
 
   getBicycles(): void {
-    this.cardsBicycleService.getBicycles().subscribe(bicycles => {
+    this.bicycleService.getBicycles().subscribe((bicycles) => {
       this.bicycles = bicycles;
     });
   }
@@ -24,16 +24,8 @@ export class CardBicyleComponent {
     const percentage = (rating / 5) * 100;
     return `linear-gradient(to right, #ffcc00 0%, #ffcc00 ${percentage}%, #cccccc ${percentage}%, #cccccc 100%)`;
   }
-/*
-  getStarWidth(rating: number): number {
-    const maxRating = 5;
-    const percentage = (rating / maxRating) * 100;
-    return percentage;
-  }
-  getStarsArray(rating: number): number[] {
-    return Array.from({ length: 5 }, (_, i) => i);
-  }*/
+
   getStarPercentage(rating: number): number {
     return (rating / 5) * 100;
-  } 
+  }
 }

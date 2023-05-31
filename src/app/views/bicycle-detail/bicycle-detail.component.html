@@ -1,12 +1,9 @@
-<head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-</head>
-<div class="row">
-  <div class="col-md-3" *ngFor="let bicycle of bicycles">
-    <div class="card">
+<div *ngIf="bicycle">
+  <div class="container-md">
+    <div class="card m-3 p-3">
+      <h1 class="card-title text-center fw-bold">{{ bicycle.model }}</h1>
       <img [src]="bicycle.image" class="card-img-top" alt="{{ bicycle.description }}" />
       <div class="card-body">
-        <h5 class="card-title">{{ bicycle.model }}</h5>
         <p class="card-text">{{ bicycle.description }}</p>
         <div class="rating">
           <span class="rating-value">{{ bicycle.averageRating.toFixed(1) }} / 5</span>
@@ -22,7 +19,26 @@
           <li class="list-group-item">Precio por hora: {{ bicycle.pricePerHour }} €</li>
           <li class="list-group-item">Disponible: {{ bicycle.available ? 'Sí' : 'No' }}</li>
         </ul>
-        <a class="btn btn-primary mt-3" [ngClass]="{ disabled: !bicycle.available }" [routerLink]="['/bicycles', bicycle.id]">Reservar</a>
+        <hr />
+        <form action="" class="d-flex flex-column">
+          <h2>Seleccione un rango de fechas:</h2>
+          <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" class="calendar" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
+          </ngb-datepicker>
+
+          <ng-template #t let-date let-focused="focused">
+            <span
+              class="custom-day"
+              [class.focused]="focused"
+              [class.range]="isRange(date)"
+              [class.faded]="isHovered(date) || isInside(date)"
+              (mouseenter)="hoveredDate = date"
+              (mouseleave)="hoveredDate = null"
+            >
+              {{ date.day }}
+            </span>
+          </ng-template>
+          <a class="btn btn-primary mt-3" [ngClass]="{ disabled: !bicycle.available }" [routerLink]="['/product-purchase']">Proceder con el pago</a>
+        </form>
       </div>
     </div>
   </div>
