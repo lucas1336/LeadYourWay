@@ -2,13 +2,13 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { CardsBicycle } from '../models/cards-bicycle.model';
+import { BicycleModule } from '../models/bicycle/bicycle.module';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CardsBicycleService {
-  private base_Url = 'http://localhost:3000/bicycles';
+export class BicycleService {
+  private base_Url = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
@@ -17,9 +17,15 @@ export class CardsBicycleService {
     return throwError('Something bad happened; please try again later.');
   }
 
-  getBicycles(): Observable<CardsBicycle[]> {
+  getBicycles(): Observable<BicycleModule[]> {
     return this.http
-      .get<CardsBicycle[]>(this.base_Url)
+      .get<BicycleModule[]>(`${this.base_Url}/bicycles`)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getBicycle(id: number): Observable<BicycleModule> {
+    return this.http
+      .get<BicycleModule>(`${this.base_Url}/bicycles/${id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

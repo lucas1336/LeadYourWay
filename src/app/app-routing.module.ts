@@ -10,6 +10,7 @@ import { ProductPurchaseComponent } from './views/product-purchase/product-purch
 import { AddBicycleComponent } from './views/add-bicycle/add-bicycle.component';
 import { PaymenthMethodComponent } from './views/paymenth-method/paymenth-method.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
+import { BicycleDetailComponent } from './views/bicycle-detail/bicycle-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'product-purchase', component: ProductPurchaseComponent },
   { path: 'create', component: AddBicycleComponent },
   { path: 'payment-method', component: PaymenthMethodComponent },
+  { path: 'bicycles/:id', component: BicycleDetailComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
