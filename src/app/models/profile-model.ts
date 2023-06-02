@@ -1,4 +1,5 @@
 export class User {
+  id:number|null;
   name: string;
   email: string;
   profileImage: string;
@@ -7,6 +8,7 @@ export class User {
   borrowedBicycles: any[];
 
   constructor(
+    id:number|null,
     name: string,
     email: string,
     profileImage: string,
@@ -14,6 +16,7 @@ export class User {
     rentedBicycles: any[],
     borrowedBicycles: any[]
   ) {
+    this.id=id; 
     this.name = name;
     this.email = email;
     this.profileImage = profileImage;

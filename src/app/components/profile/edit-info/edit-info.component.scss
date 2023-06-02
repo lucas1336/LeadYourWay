@@ -1,0 +1,32 @@
+.card-content{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.example-card
+{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+}
+form {
+    max-width: 420px;
+    margin: 0 auto;
+    
+}
+.my-auto
+{
+    padding-top: 200px;
+}
+.h1 {
+    text-align: center;
+}
+.form-group
+{
+    width: 100%;
+}

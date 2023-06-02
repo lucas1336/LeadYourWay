@@ -105,5 +105,56 @@
     {
       "id": 2
     }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "username": "Kirby",
+      "email": "kirby.hi@poyo.com",
+      "profileimage": "https://ipfs.creary.net/ipfs/QmayCWVoB27yxuN4aum762sfZVrX7XsSEY6wJ16na4QUWQ",
+      "description": "Cute guy",
+      "rentedbicycles": [
+        {
+          "id": 1,
+          "model": "Bicicleta fachera",
+          "description": "Bicicleta fachera de aro 27.5\" de la marca Gotek, ideal para movilizarte a cualquier lugar que desees en tu día a día.",
+          "price": 100,
+          "image": "https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg"
+        },
+        {
+          "id": 2,
+          "model": "BMX",
+          "description": "Al aprovechar las ventajas de ajuste y conduccion para cada ciclista con su tamano de rueda ideal, y con una suspension optimizada gracias a nuestro Rx Tune especifico segun talla.",
+          "price": 200,
+          "image": "https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg"
+        }
+      ],
+      "borrowedBicycles": [
+        {
+          "id": 1,
+          "model": "Bicicleta no tan fachera",
+          "description": "Bicicleta fachera de aro 27.5\" de la marca Gotek, ideal para movilizarte a cualquier lugar que desees en tu día a día.",
+          "price": 100,
+          "image": "https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg"
+        },
+        {
+          "id": 2,
+          "model": "Giant",
+          "description": "Al aprovechar las ventajas de ajuste y conduccion para cada ciclista con su tamano de rueda ideal, y con una suspension optimizada gracias a nuestro Rx Tune especifico segun talla.",
+          "price": 200,
+          "image": "https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg"
+        }
+      ]
+    }
+  ],
+  "userinfo": [
+    {
+      "id": 1,
+      "fullname": "Fabrizzio Castro",
+      "email": "example@gmail.com",
+      "phone": "(097)234-5678",
+      "mobile": "(098)765-4321",
+      "address": "San Francisco, CA"
+    }
   ]
 }

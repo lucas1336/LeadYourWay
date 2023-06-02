@@ -32,6 +32,7 @@ import { AddBicycleComponent } from './views/add-bicycle/add-bicycle.component';
 import { PaymenthMethodComponent } from './views/paymenth-method/paymenth-method.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
 import { BicycleDetailComponent } from './views/bicycle-detail/bicycle-detail.component';
+import { EditInfoComponent } from './components/profile/edit-info/edit-info.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { BicycleDetailComponent } from './views/bicycle-detail/bicycle-detail.co
     PaymenthMethodComponent,
     NotFoundComponent,
     BicycleDetailComponent,
+    EditInfoComponent,
   ],
   imports: [
     BrowserModule,
