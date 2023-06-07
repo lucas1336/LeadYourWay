@@ -4,6 +4,7 @@ export interface BicycleModule {
   description: string;
   image: string;
   pricePerHour: number;
+  price: number;
   available: boolean;
   averageRating: number;
   userId: number;
