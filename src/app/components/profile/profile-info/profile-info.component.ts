@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { User } from 'src/app/models/profile-model';
+import { UserModule } from 'src/app/models/user/user.module';
 
 @Component({
   selector: 'app-profile-info',
@@ -7,5 +7,5 @@ import { User } from 'src/app/models/profile-model';
   styleUrls: ['./profile-info.component.scss'],
 })
 export class ProfileInfoComponent {
-  @Input() user!: User;
+  @Input() user!: UserModule;
 }

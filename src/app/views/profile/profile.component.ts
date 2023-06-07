@@ -1,4 +1,3 @@
-import { User } from 'src/app/models/profile-model';
 import { Component } from '@angular/core';
 import { NgbDate, NgbCalendar, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -7,21 +6,19 @@ import { UserModule } from 'src/app/models/user/user.module';
 import { UserInfo } from 'src/app/models/user/userinformation.module';
 import { UserInfoService } from 'src/app/services/user.service';
 import { UserService } from 'src/app/services/user.service';
-import {MatTableDataSource} from '@angular/material/table'
+import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-  user!: User;
-  UserData!:UserModule;
-  UserInfoData!:UserInfo; 
+  user!: UserModule;
+  UserData!: UserModule;
+  UserInfoData!: UserInfo;
   selectedDate!: Date;
   dataSource = new MatTableDataSource();
 
-  
-  
   longText = `Bicicleta montañera de aro 27.5" de la marca Gotek, ideal para movilizarte a cualquier lugar que desees en tu día a día.`;
   longText2 = `Al aprovechar las ventajas de ajuste y conduccion para cada ciclista con su tamano de rueda ideal, y con una suspension optimizada gracias a nuestro Rx Tune especifico segun talla.`;
   longText3 = `Equipamos a la P.Series P.3 con los mejores componentes que pudimos encontrar, como una horquilla de suspensión Manitou Circus Sport con todos los adornos: resorte firme, amortiguación FFD y amortiguación de rebote TPC, para mantener tus despegues ajustados y tus aterrizajes más suaves.`;
@@ -30,76 +27,46 @@ export class ProfileComponent {
   fromDate: NgbDate;
   toDate: NgbDate | null = null;
 
-  constructor(private userService:UserService,private userInfoService:UserInfoService ,calendar: NgbCalendar) {
+  constructor(
+    private userService: UserService,
+    private userInfoService: UserInfoService,
+    calendar: NgbCalendar
+  ) {
     this.UserData = {} as UserModule;
-    this.UserInfoData ={} as UserInfo;  
+    this.UserInfoData = {} as UserInfo;
 
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }
 
   ngOnInit(): void {
-    this.user = new User(
-      1,
-      'Kirby',
-      'kirby.hi@poyo.com',
-      'https://ipfs.creary.net/ipfs/QmayCWVoB27yxuN4aum762sfZVrX7XsSEY6wJ16na4QUWQ',
-      'Cute guy',
-      [
+    this.user = {
+      firstName: 'Kirby',
+      lastName: 'Henderson',
+      email: 'kirby@mail.com',
+      password: '123456',
+      phone: '123456',
+      birthDate: new Date(),
+      bicycles: [
         {
           id: 1,
-          name: 'Bicicleta fachera',
-          description:
-            'Bicicleta fachera de aro 27.5" de la marca Gotek, ideal para movilizarte a cualquier lugar que desees en tu día a día.',
-          price: 100,
-          image: 'https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg',
-        },
-        {
-          id: 2,
-          name: 'BMX',
-          description:
-            'Al aprovechar las ventajas de ajuste y conduccion para cada ciclista con su tamano de rueda ideal, y con una suspension optimizada gracias a nuestro Rx Tune especifico segun talla.',
-          price: 200,
-          image: 'https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg',
+          model: 'Gotek',
+          description: 'Bicicleta montañera de aro 27.5',
+          image:
+            'https://www.oxfordstore.pe/media/catalog/product/cache/e2b750e3a1f8d67cf5cdd4eb0e9445ad/b/f/bf2081_waikiki_20_grafito_2021_01.jpg',
+          pricePerHour: 10,
+          available: true,
+          averageRating: 4,
+          userId: 1,
         },
       ],
-      [
-        {
-          id: 1,
-          name: 'Bicicleta no tan fachera',
-          description:
-            'Bicicleta fachera de aro 27.5" de la marca Gotek, ideal para movilizarte a cualquier lugar que desees en tu día a día.',
-          price: 100,
-          image: 'https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg',
-        },
-        {
-          id: 2,
-          name: 'Giant',
-          description:
-            'Al aprovechar las ventajas de ajuste y conduccion para cada ciclista con su tamano de rueda ideal, y con una suspension optimizada gracias a nuestro Rx Tune especifico segun talla.',
-          price: 200,
-          image: 'https://www.eltiodelmazo.com/wp-content/uploads/2015/02/nuevas-bicicletas-1.jpg',
-        },
-      ]
-    );
-    
-      if(this.user.id !== null)
-      {
-        this.getUserInfoById(this.user.id.toString())
-      }
-
-    
-
+    };
   }
-  getUserInfoById(id:string|null)
-  {
-    this.userInfoService.getItem(id).subscribe((response:any)=>
-    {
-      this.UserInfoData=response
-      console.log(this.UserInfoData)
-    })
-    
-    
+  getUserInfoById(id: string | null) {
+    this.userInfoService.getItem(id).subscribe((response: any) => {
+      this.UserInfoData = response;
+      console.log(this.UserInfoData);
+    });
   }
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {

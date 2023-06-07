@@ -1,8 +1,11 @@
+import { BicycleModule } from '../bicycle/bicycle.module';
+
 export interface UserModule {
-  username: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  profileImage: string;
-  description: string;
-  rentedBicycles: any[];
-  borrowedBicycles: any[];
+  password: string;
+  phone: string;
+  birthDate: Date;
+  bicycles: BicycleModule[];
 }
