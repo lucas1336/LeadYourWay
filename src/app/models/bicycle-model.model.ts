@@ -1,4 +1,4 @@
-export interface BicycleModule2 {
+export interface BicycleModule {
   id: number;
   bicycleName: string;
   bicycleDescription: string;

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BicycleService } from 'src/app/services/bicycle.service';
-import { BicycleModule2 } from 'src/app/models/bicycle-model.model';
+import { BicycleModule } from 'src/app/models/bicycle-model.model';
 
 @Component({
   selector: 'app-add-bicycle',
@@ -14,7 +14,7 @@ export class AddBicycleComponent {
   secondFormGroup!: FormGroup;
   thirdFormGroup!: FormGroup;
 
-  bicycle!: BicycleModule2;
+  bicycle!: BicycleModule;
   id!: number | null;
 
   constructor(
