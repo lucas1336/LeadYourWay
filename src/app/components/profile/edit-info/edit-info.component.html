@@ -1,49 +1,52 @@
 <body style="background-color: #fee8e7">
+  <div class="my-auto">
+    <form #UserInfoForm="ngForm">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title class="h2">Editar información</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          <div class="form-group">
+            <label for="nombre" style="margin-bottom: 1%">Nombre completo</label>
+            <input
+              class="form-control"
+              type="text"
+              matInput
+              #message
+              maxlength="60"
+              placeholder="Full name"
+              name="fullname"
+              required
+              [(ngModel)]="UserInfoData.fullname"
+            />
+          </div>
 
-    <div class="my-auto">
-        <form  #UserInfoForm='ngForm' >
+          <div class="form-group">
+            <label for="email" style="margin-bottom: 1%; margin-top: 2%">Correo electrónico</label>
+            <input class="form-control" type="text" matInput placeholder="Email" name="email" required [(ngModel)]="UserInfoData.email" />
+          </div>
 
-            <mat-card class="example-card">
-                <mat-card-header>
-                <mat-card-title class="h2">Editar información</mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="card-content">
-                    <div class="form-group">
-                        <label for="nombre" style="margin-bottom: 1%">Nombre completo</label>
-                        <input class="form-control" type="text" matInput #message maxlength="60" placeholder="Full name" name = "fullname" required [(ngModel)]="UserInfoData.fullname">
-                    </div>
+          <div class="form-group">
+            <label for="phone" style="margin-bottom: 1%; margin-top: 2%">Phone</label>
+            <input class="form-control" type="text" matInput placeholder="Phone" name="phone" required [(ngModel)]="UserInfoData.phone" />
+          </div>
 
-                    <div class="form-group">
-                        <label for="email" style="margin-bottom: 1%; margin-top: 2%">Correo electrónico</label> 
-                        <input class="form-control" type="text" matInput placeholder="Email" name = "email" required [(ngModel)]="UserInfoData.email">
-                    </div>
+          <div class="form-group">
+            <label for="mobile" style="margin-bottom: 1%; margin-top: 2%">Mobile</label>
+            <input class="form-control" type="text" matInput placeholder="Mobile" name="mobile" required [(ngModel)]="UserInfoData.mobile" />
+          </div>
 
-                    <div class="form-group">
-                        <label for="phone" style="margin-bottom: 1%; margin-top: 2%">Phone</label> 
-                        <input class="form-control" type="text" matInput placeholder="Phone" name = "phone" required [(ngModel)]="UserInfoData.phone">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mobile" style="margin-bottom: 1%; margin-top: 2%">Mobile</label> 
-                        <input class="form-control" type="text" matInput placeholder="Mobile" name = "mobile" required [(ngModel)]="UserInfoData.mobile">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="address" style="margin-bottom: 1%; margin-top: 2%">Address</label> 
-                        <input class="form-control" type="text" matInput placeholder="Address" name = "address" required [(ngModel)]="UserInfoData.address">
-                    </div>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button color="primary" (click)="updateOffer()">Update</button>&nbsp;
-                    <button mat-button color="warn" routerLink="/profile">Cancel</button>&nbsp;
-                </mat-card-actions>
-                <a  mat-stroked-button color="primary" routerLink="/profile">
-                    Back to Profile<mat-icon>home</mat-icon>
-                </a>
-            </mat-card>   
-    
-        </form>
-    </div>
+          <div class="form-group">
+            <label for="address" style="margin-bottom: 1%; margin-top: 2%">Address</label>
+            <input class="form-control" type="text" matInput placeholder="Address" name="address" required [(ngModel)]="UserInfoData.address" />
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="updateOffer()">Update</button>&nbsp;
+          <button mat-button color="warn" routerLink="/profile">Cancel</button>&nbsp;
+        </mat-card-actions>
+        <a mat-stroked-button color="primary" routerLink="/profile"> Back to Profile<mat-icon>home</mat-icon> </a>
+      </mat-card>
+    </form>
+  </div>
 </body>
-
-  
