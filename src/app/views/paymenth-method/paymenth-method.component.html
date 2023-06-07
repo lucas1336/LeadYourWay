@@ -18,7 +18,10 @@
 
         <div class="inputBox">
           <span for="card">Tarjetas que aceptamos :</span>
-          <img src="../../../assets/images/card_img.png" alt="" />
+          <mat-radio-group aria-label="Select an option" [ngModelOptions]="{ standalone: true }" [(ngModel)]="PaymentData.cardType">
+            <mat-radio-button value="Visa">Visa</mat-radio-button>
+            <mat-radio-button value="Mastercard">Mastercard</mat-radio-button>
+          </mat-radio-group>
         </div>
         <div class="inputBox">
           <span for="numero_tarjeta">Número de tarjeta :</span>
@@ -67,7 +70,7 @@
               placeholder="2022"
               [ngModelOptions]="{ standalone: true }"
               required
-              [(ngModel)]="PaymentData.exp_year"
+              [(ngModel)]="year"
             />
           </div>
           <div class="inputBox">
@@ -79,7 +82,7 @@
               placeholder="05"
               [ngModelOptions]="{ standalone: true }"
               required
-              [(ngModel)]="PaymentData.mes_exp"
+              [(ngModel)]="month"
             />
           </div>
         </div>

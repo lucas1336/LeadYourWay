@@ -93,13 +93,12 @@
   ],
   "payment": [
     {
-      "cardNumber": "1111222233334444",
-      "exp_year": "2026",
-      "mes_exp": "09",
-      "cardHolder": "TARJETA",
-      "cardCVV": "123",
-      "id": 2,
-      "cardExpirationDate": "2026-09"
+      "cardType": "Mastercard",
+      "cardNumber": "1234123412341234",
+      "cardHolder": "Tarjeta",
+      "cardCVV": "124",
+      "id": 1,
+      "cardExpirationDate": "2024-09-06"
     }
   ],
   "user": [

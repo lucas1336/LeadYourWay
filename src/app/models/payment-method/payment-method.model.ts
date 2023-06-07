@@ -4,6 +4,5 @@ export interface PaymentMethod{
     cardHolder: string;
     cardCVV: string;
     cardExpirationDate: string;
-    exp_year: string;
-    mes_exp: string;
+    cardType: string;
 }

@@ -15,8 +15,13 @@ export class PaymenthMethodComponent {
   PaymentForm!: NgForm;
   PaymentData!: PaymentMethod;
 
+  year: string;
+  month: string;
+
   constructor(private paymentMethodService: PaymentMethodService, private snackBar: MatSnackBar) {
     this.PaymentData = {} as PaymentMethod;
+    this.year = "";
+    this.month = "";
   }
   
 
@@ -36,12 +41,12 @@ export class PaymenthMethodComponent {
       return;
     }
   
-    if (!this.isValidExpirationMonth(this.PaymentData.mes_exp)) {
+    if (!this.isValidExpirationMonth(this.month)) {
       this.openSnackBar('Invalid data');
       return;
     }
   
-    if (!this.isValidExpirationYear(this.PaymentData.exp_year)) {
+    if (!this.isValidExpirationYear(this.year)) {
       this.openSnackBar('Invalid data');
       return;
     }
@@ -96,6 +101,8 @@ export class PaymenthMethodComponent {
   addPayment() {
     this.PaymentData.id = 0;
     this.updateCardExpirationDate();
+    this.PaymentData.cardType = this.PaymentData.cardType; // Guardar el valor seleccionado
+    console.log('PaymentData:', this.PaymentData);
     console.log('PaymentData:', this.PaymentData);
     this.paymentMethodService.createItem(this.PaymentData).subscribe(
       (response) => {
@@ -108,7 +115,7 @@ export class PaymenthMethodComponent {
   }
 
   updateCardExpirationDate() {
-    this.PaymentData.cardExpirationDate = `${this.PaymentData.exp_year}-${this.PaymentData.mes_exp}`;
+    this.PaymentData.cardExpirationDate = `${this.year}-${this.month}-06`;
   }
 
 }
