@@ -95,6 +95,7 @@ export class PaymenthMethodComponent {
 
   addPayment() {
     this.PaymentData.id = 0;
+    this.updateCardExpirationDate();
     console.log('PaymentData:', this.PaymentData);
     this.paymentMethodService.createItem(this.PaymentData).subscribe(
       (response) => {
