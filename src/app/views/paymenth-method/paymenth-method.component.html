@@ -11,9 +11,7 @@
             type="text"
             id="nombre"
             placeholder="Example Name"
-            [ngModelOptions]="{ standalone: true }"
             required
-            [(ngModel)]="PaymentData.nombre"
             name="nombre"
           />
         </div>
@@ -31,7 +29,7 @@
             placeholder="1111-2222-3333-4444"
             [ngModelOptions]="{ standalone: true }"
             required
-            [(ngModel)]="PaymentData.numero_tarjeta"
+            [(ngModel)]="PaymentData.cardNumber"
           />
         </div>
         <div class="inputBox">
@@ -43,7 +41,7 @@
             placeholder="Example card name"
             [ngModelOptions]="{ standalone: true }"
             required
-            [(ngModel)]="PaymentData.nombre_tarjeta"
+            [(ngModel)]="PaymentData.cardHolder"
           />
         </div>
       </div>
@@ -56,9 +54,7 @@
             type="email"
             id="correo"
             placeholder="example@example.com"
-            [ngModelOptions]="{ standalone: true }"
             required
-            [(ngModel)]="PaymentData.correo"
           />
         </div>
         <div class="flex">
@@ -89,7 +85,7 @@
         </div>
         <div class="inputBox" style="margin-top: 0">
           <span for="cvv">CVV :</span>
-          <input matInput type="text" id="cvv" placeholder="1234" [ngModelOptions]="{ standalone: true }" required [(ngModel)]="PaymentData.cvv" />
+          <input matInput type="text" id="cvv" placeholder="1234" [ngModelOptions]="{ standalone: true }" required [(ngModel)]="PaymentData.cardCVV" />
         </div>
       </div>
     </div>

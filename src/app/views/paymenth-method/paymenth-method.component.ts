@@ -1,6 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild,  SimpleChanges, OnChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { PaymentMethod } from 'src/app/models/payment-method.model';
+import { PaymentMethod } from 'src/app/models/payment-method/payment-method.model';
 import { PaymentMethodService } from 'src/app/services/payment-method.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -26,18 +26,12 @@ export class PaymenthMethodComponent {
       return;
     }
   
-    // Additional validation for specific fields
-    if (!this.isValidEmail(this.PaymentData.correo)) {
+    if (!this.isValidCardNumber(this.PaymentData.cardNumber)) {
       this.openSnackBar('Invalid data');
       return;
     }
   
-    if (!this.isValidCardNumber(this.PaymentData.numero_tarjeta)) {
-      this.openSnackBar('Invalid data');
-      return;
-    }
-  
-    if (!this.isValidCVV(this.PaymentData.cvv)) {
+    if (!this.isValidCVV(this.PaymentData.cardCVV)) {
       this.openSnackBar('Invalid data');
       return;
     }
@@ -55,6 +49,15 @@ export class PaymenthMethodComponent {
     // Perform the payment submission
     this.addPayment();
     console.log('Valid');
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (
+      (changes['PaymentData'].currentValue.exp_year !== changes['PaymentData'].previousValue.exp_year) ||
+      (changes['PaymentData'].currentValue.mes_exp !== changes['PaymentData'].previousValue.mes_exp)
+    ) {
+      this.updateCardExpirationDate();
+    }
   }
   
   openSnackBar(message: string) {
@@ -110,6 +113,10 @@ export class PaymenthMethodComponent {
         console.log('Error:', error);
       }
     );
+  }
+
+  updateCardExpirationDate() {
+    this.PaymentData.cardExpirationDate = `${this.PaymentData.exp_year}-${this.PaymentData.mes_exp}`;
   }
 
 }

@@ -93,13 +93,11 @@
   ],
   "payment": [
     {
-      "nombre": "ANDREA SOFIA ALFARO SALINAS",
-      "correo": "alfaros.andrea@gmail.com",
-      "numero_tarjeta": "123",
-      "exp_year": "123",
-      "mes_exp": "123",
-      "nombre_tarjeta": "123",
-      "cvv": "123",
+      "cardNumber": "1111222233334444",
+      "exp_year": "2026",
+      "mes_exp": "04",
+      "cardHolder": "TARJETA",
+      "cardCVV": "123",
       "id": 1
     }
   ],
