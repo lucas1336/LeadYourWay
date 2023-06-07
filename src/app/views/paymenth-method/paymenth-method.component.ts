@@ -50,15 +50,6 @@ export class PaymenthMethodComponent {
     this.addPayment();
     console.log('Valid');
   }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (
-      (changes['PaymentData'].currentValue.exp_year !== changes['PaymentData'].previousValue.exp_year) ||
-      (changes['PaymentData'].currentValue.mes_exp !== changes['PaymentData'].previousValue.mes_exp)
-    ) {
-      this.updateCardExpirationDate();
-    }
-  }
   
   openSnackBar(message: string) {
     this.snackBar.open(message, 'Close', {
