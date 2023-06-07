@@ -39,9 +39,7 @@ export class ProfileComponent {
 
   getUser() {
     this.userService.getItem(this.userId).subscribe((response: any) => {
-      //console.log(response.data);
       this.user = response;
-      console.log(this.user);
     });
   }
 
@@ -49,13 +47,11 @@ export class ProfileComponent {
     this.userId = localStorage.getItem('id');
     if (this.userId != null) {
       this.getUser();
-      console.log(this.userId);
     }
   }
   getUserInfoById(id: string | null) {
     this.userInfoService.getItem(id).subscribe((response: any) => {
       this.UserInfoData = response;
-      console.log(this.UserInfoData);
     });
   }
   onDateSelection(date: NgbDate) {

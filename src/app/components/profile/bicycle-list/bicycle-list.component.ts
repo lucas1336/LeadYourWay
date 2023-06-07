@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserModule } from 'src/app/models/user/user.module';
+import { BicycleModule } from 'src/app/models/bicycle/bicycle.module';
 
 @Component({
   selector: 'app-bicycle-list',
@@ -9,13 +10,7 @@ import { UserModule } from 'src/app/models/user/user.module';
 export class BicycleListComponent {
   @Input() user!: UserModule;
   @Input() title!: String;
-  @Input() bicycles!: any[];
+  @Input() bicycles!: BicycleModule[];
 
-  ngOnInit(): void {
-    console.log(this.user);
-    console.log(this.bicycles);
-    for (let i = 0; i < this.bicycles.length; i++) {
-      console.log(this.bicycles[i].id);
-    }
-  }
+  ngOnInit(): void {}
 }

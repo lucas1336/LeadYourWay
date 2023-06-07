@@ -1,10 +1,10 @@
 export interface BicycleModule {
   id: number;
-  model: string;
-  description: string;
-  image: string;
-  pricePerHour: number;
-  available: boolean;
-  averageRating: number;
-  userId: number;
+  bicycleName: string;
+  bicycleDescription: string;
+  bicyclePrice: number;
+  bicycleSize: string;
+  bicycleModel: string;
+  imageData: string;
+  availabilities: Array<any>;
 }

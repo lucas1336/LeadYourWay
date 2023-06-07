@@ -4,25 +4,17 @@
 <div class="row">
   <div class="col-md-3" *ngFor="let bicycle of bicycles">
     <div class="card">
-      <img [src]="bicycle.image" class="card-img-top" alt="{{ bicycle.description }}" />
+      <img [src]="bicycle.imageData" class="card-img-top" alt="{{ bicycle.bicycleDescription }}" />
       <div class="card-body">
-        <h5 class="card-title">{{ bicycle.model }}</h5>
-        <p class="card-text">{{ bicycle.description }}</p>
-        <div class="rating">
-          <span class="rating-value">{{ bicycle.averageRating.toFixed(1) }} / 5</span>
-          <div class="stars">
-            <span class="fa fa-star{{ bicycle.averageRating >= 1 ? ' checked' : '' }}"></span>
-            <span class="fa fa-star{{ bicycle.averageRating >= 2 ? ' checked' : '' }}"></span>
-            <span class="fa fa-star{{ bicycle.averageRating >= 3 ? ' checked' : '' }}"></span>
-            <span class="fa fa-star{{ bicycle.averageRating >= 4 ? ' checked' : '' }}"></span>
-            <span class="fa fa-star{{ bicycle.averageRating >= 5 ? ' checked' : '' }}"></span>
-          </div>
-        </div>
+        <h5 class="card-title">{{ bicycle.bicycleModel }}</h5>
+        <p class="card-text">{{ bicycle.bicycleDescription }}</p>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Precio por hora: {{ bicycle.pricePerHour }} €</li>
-          <li class="list-group-item">Disponible: {{ bicycle.available ? 'Sí' : 'No' }}</li>
+          <li class="list-group-item">Precio por hora: {{ bicycle.bicyclePrice }} €</li>
+          <li class="list-group-item">Disponible: {{ bicycle.availabilities.length > 0 ? 'Sí' : 'No' }}</li>
         </ul>
-        <a class="btn btn-primary mt-3" [ngClass]="{ disabled: !bicycle.available }" [routerLink]="['/bicycles', bicycle.id]">Reservar</a>
+        <a class="btn btn-primary mt-3" [ngClass]="{ disabled: !(bicycle.availabilities.length > 0) }" [routerLink]="['/bicycles', bicycle.id]"
+          >Reservar</a
+        >
       </div>
     </div>
   </div>
