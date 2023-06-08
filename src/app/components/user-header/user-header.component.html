@@ -1,11 +1,9 @@
 <header class="pb-3 mb-4">
   <nav class="navbar navbar-expand-md navbar-light d-flex justify-content-between" id="navbar-menu">
-    <div>
-      <a class="navbar-brand" href="#">
-        <img src="/assets/images/LogoLYW_2023-icon-removebg.png" alt="brand logo" width="50" />
-      </a>
-      <button class="navbar-toggler btn mx-4 btn-outline-dark nav-item" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
-    </div>
+    <a class="navbar-brand" href="#">
+      <img src="/assets/images/LogoLYW_2023-icon-removebg.png" alt="brand logo" width="50" />
+    </a>
+    <button class="navbar-toggler btn mx-4 btn-outline-dark nav-item" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
     <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse text-center">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
