@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { NgbDate, NgbCalendar, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
-import { JsonPipe } from '@angular/common';
+import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { UserModule } from 'src/app/models/user/user.module';
 import { UserInfo } from 'src/app/models/user/userinformation.module';
-import { UserInfoService } from 'src/app/services/user.service';
 import { UserService } from 'src/app/services/user.service';
 import { MatTableDataSource } from '@angular/material/table';
 @Component({
@@ -25,7 +22,7 @@ export class ProfileComponent {
 
   constructor(
     private userService: UserService,
-    private userInfoService: UserInfoService,
+    private userInfoService: UserService,
     calendar: NgbCalendar
   ) {
     this.UserData = {} as UserModule;

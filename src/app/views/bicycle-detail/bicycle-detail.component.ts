@@ -25,9 +25,7 @@ export class BicycleDetailComponent {
     private bicycleService: BicycleService,
     calendar: NgbCalendar
   ) {
-    this.route.params.subscribe((params) => {
-      this.bicycleId = params['id'];
-    });
+    this.bicycleId = Number(localStorage.getItem('bicycleId'));
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 3);
   }

@@ -12,9 +12,7 @@
           <li class="list-group-item">Precio por hora: {{ bicycle.bicyclePrice }} €</li>
           <li class="list-group-item">Disponible: {{ bicycle.availabilities.length > 0 ? 'Sí' : 'No' }}</li>
         </ul>
-        <a class="btn btn-primary mt-3" [ngClass]="{ disabled: !(bicycle.availabilities.length > 0) }" [routerLink]="['/bicycles', bicycle.id]"
-          >Reservar</a
-        >
+        <a class="btn btn-primary mt-3" [ngClass]="{ disabled: !(bicycle.availabilities.length <= 0) }" (click)="onReserve(bicycle.id)">Reservar</a>
       </div>
     </div>
   </div>

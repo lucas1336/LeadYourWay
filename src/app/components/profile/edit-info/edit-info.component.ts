@@ -1,61 +1,56 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {MatTableDataSource} from '@angular/material/table'
+import { MatTableDataSource } from '@angular/material/table';
 import { NgForm } from '@angular/forms';
-import { UserInfoService } from 'src/app/services/user.service';
-import { UserInfo } from 'src/app/models/user/userinformation.module';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { UserModule } from 'src/app/models/user/user.module';
 
 import * as _ from 'lodash';
 
 @Component({
   selector: 'app-edit-info',
   templateUrl: './edit-info.component.html',
-  styleUrls: ['./edit-info.component.scss']
+  styleUrls: ['./edit-info.component.scss'],
 })
 export class EditInfoComponent {
-  UserInfoData!:UserInfo;
-  UserInfoForm!:NgForm;
+  UserData!: UserModule;
+  UserInfoForm!: NgForm;
   dataSource = new MatTableDataSource();
-  
-  id!:string|null;
 
-  constructor(private userInfoService:UserInfoService,private route: ActivatedRoute) {
-    this.UserInfoData = {} as UserInfo
-    
+  id!: string | null;
+
+  constructor(
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.UserData = {} as UserModule;
   }
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id); // Imprime el valor del id en la consola
-    this.getUserInfoById(this.id)
+    this.id = localStorage.getItem('id');
+    this.getUserInfoById(this.id);
   }
-  updateOffer()
-  {
-    if(this.UserInfoData.id !== null)
-    {
-      this.userInfoService.updateItem(this.UserInfoData.id.toString(),this.UserInfoData).subscribe((response:any)=>{
-        this.dataSource.data = this.dataSource.data.map((o:any) =>{
-          if(o.id == response.id){
-            o = response;
-          }
-          return 0;
-        });
-      });
-    }
+
+  updateOffer() {
+    this.userService.updateItem(String(this.id), this.UserData).subscribe((response: any) => {
+      this.router.navigate(['/profile']);
+    });
   }
-  cancelEdit(){
-    
+
+  cancelEdit() {
     this.UserInfoForm.resetForm();
   }
 
-  getUserInfoById(id:string|null)
-  {
-    this.userInfoService.getItem(id).subscribe((response:any)=>
-    {
-      this.UserInfoData=response
-      
-    })
-    
-    console.log(this.UserInfoData)
+  getUserInfoById(id: string | null) {
+    this.userService.getItem(id).subscribe((response: any) => {
+      this.UserData.userFirstName = String(response.userFirstName);
+      this.UserData.userLastName = String(response.userLastName);
+      this.UserData.userEmail = String(response.userEmail);
+      this.UserData.userPhone = String(response.userPhone);
+      this.UserData.userBirthDate = new Date(response.userBirthDate);
+      this.UserData.userPassword = String(response.userPassword);
+    });
   }
 }

@@ -24,8 +24,8 @@ const routes: Routes = [
   { path: 'product-purchase', component: ProductPurchaseComponent },
   { path: 'create', component: AddBicycleComponent },
   { path: 'payment-method', component: PaymenthMethodComponent },
-  { path: 'bicycles/:id', component: BicycleDetailComponent },
-  { path: 'profile/userinfo/edit/:id', component: EditInfoComponent },
+  { path: 'bicycles', component: BicycleDetailComponent },
+  { path: 'profile/edit', component: EditInfoComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

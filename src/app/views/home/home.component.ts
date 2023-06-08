@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BicycleService } from 'src/app/services/bicycle.service';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,13 +9,11 @@ import { BicycleService } from 'src/app/services/bicycle.service';
 export class HomeComponent {
   loggedIn: boolean = false;
 
-  constructor(private bicycleService: BicycleService) {}
+  constructor(private bicycleService: BicycleService, private userService: UserService) {}
 
   ngOnInit() {
-    this.bicycleService.getItem(Number(localStorage.getItem('id'))).subscribe((data) => {
-      if (data) {
-        this.loggedIn = true;
-      }
+    this.userService.getItem(localStorage.getItem('id')).subscribe((user) => {
+      this.loggedIn = true;
     });
   }
 }
