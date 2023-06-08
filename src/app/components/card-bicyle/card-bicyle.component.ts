@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BicycleModule } from 'src/app/models/bicycle/bicycle.module';
+import { BicycleModule } from 'src/app/models/bicycle-model.model';
 import { BicycleService } from 'src/app/services/bicycle.service';
 @Component({
   selector: 'app-card-bicyle',
@@ -16,7 +16,7 @@ export class CardBicyleComponent {
   }
 
   getBicycles(): void {
-    this.bicycleService.getBicycles().subscribe((bicycles) => {
+    this.bicycleService.getList().subscribe((bicycles) => {
       this.bicycles = bicycles;
     });
   }

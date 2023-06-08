@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserModule } from 'src/app/models/user/user.module';
-import { BicycleModule } from 'src/app/models/bicycle/bicycle.module';
+import { BicycleModule } from 'src/app/models/bicycle-model.model';
 
 @Component({
   selector: 'app-bicycle-list',

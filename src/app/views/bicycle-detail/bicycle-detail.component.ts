@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BicycleModule } from 'src/app/models/bicycle/bicycle.module';
+import { BicycleModule } from 'src/app/models/bicycle-model.model';
 import { ActivatedRoute } from '@angular/router';
 import { BicycleService } from 'src/app/services/bicycle.service';
 import { NgbDate, NgbCalendar, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
@@ -38,7 +38,7 @@ export class BicycleDetailComponent {
 
   getBicycle(): void {
     if (this.bicycleId) {
-      this.bicycleService.getBicycle(this.bicycleId).subscribe((bicycle) => {
+      this.bicycleService.getItem(this.bicycleId).subscribe((bicycle) => {
         this.bicycle = bicycle;
       });
     }

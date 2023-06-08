@@ -1,4 +1,4 @@
-import { BicycleModule } from '../bicycle/bicycle.module';
+import { BicycleModule } from 'src/app/models/bicycle-model.model';
 
 export interface UserModule {
   userFirstName: string;
