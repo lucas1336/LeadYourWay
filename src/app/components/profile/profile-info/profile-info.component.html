@@ -1,13 +1,10 @@
 <div class="card-body text-center">
-  <img
-    src="https://cdn.donmai.us/original/75/1c/751cdafdf8f91994204e919c75e0edc7.png"
-    alt="Generic placeholder image"
-    class="rounded-circle img-fluid"
-    style="width: 150px"
-  />
+  <img [src]="user.imageData" alt="Generic placeholder image" class="rounded-circle img-fluid" style="width: 150px" />
   <h5 class="my-3">{{ user.userFirstName }}</h5>
   <p class="text-muted mb-4">{{ user.userLastName }}</p>
   <div class="d-flex justify-content-center mb-2">
     <button type="button" class="btn btn-outline-primary ms-1 btn-primary" [routerLink]="['/profile/userinfo/edit/', 1]">Editar información</button>
   </div>
 </div>
+
+<!-- https://cdn.donmai.us/original/75/1c/751cdafdf8f91994204e919c75e0edc7.png pochita kawaii -->

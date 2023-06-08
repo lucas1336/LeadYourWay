@@ -55,6 +55,16 @@ export class UserInfoService {
       .delete<UserInfo>(`${this.base_Url}/userinfo/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  login(email: string, password: string): Observable<UserInfo> {
+    return this.http
+      .post<UserInfo>(
+        `${this.base_Url}/login`,
+        JSON.stringify({ email, password }),
+        this.httpOptions
+      )
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }
 
 @Injectable({
@@ -107,6 +117,17 @@ export class UserService {
   deleteItem(id: string): Observable<UserModule> {
     return this.http
       .delete<UserModule>(`${this.base_Url}/users/${id}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  login(email: string, password: string): Observable<number> {
+    const body = {
+      userEmail: email,
+      userPassword: password,
+    };
+
+    return this.http
+      .post<number>(`${this.base_Url}/login`, body)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'product-purchase', component: ProductPurchaseComponent },
-  { path: 'create/:id', component: AddBicycleComponent },
+  { path: 'create', component: AddBicycleComponent },
   { path: 'payment-method', component: PaymenthMethodComponent },
   { path: 'bicycles/:id', component: BicycleDetailComponent },
   { path: 'profile/userinfo/edit/:id', component: EditInfoComponent },

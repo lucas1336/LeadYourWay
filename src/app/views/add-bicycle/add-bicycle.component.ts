@@ -15,7 +15,8 @@ export class AddBicycleComponent {
   thirdFormGroup!: FormGroup;
 
   bicycle!: BicycleModule;
-  id!: number | null;
+  id!: string | null;
+  security: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,11 +38,17 @@ export class AddBicycleComponent {
     this.thirdFormGroup = new FormGroup({
       image: new FormControl(''),
     });
+    this.id = localStorage.getItem('id');
   }
 
   ngOnInit() {
-    const idParam = this.route.snapshot.paramMap.get('id');
-    this.id = idParam ? parseInt(idParam, 10) : null;
+    this.bicycleService.getItem(Number(this.id)).subscribe(
+      (data) => {},
+      (error) => {
+        alert('Error retrieving data. Please login to continue.');
+        this.router.navigate(['/home']);
+      }
+    );
   }
 
   onSubmit() {

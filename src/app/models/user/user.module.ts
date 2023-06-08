@@ -6,6 +6,7 @@ export interface UserModule {
   userEmail: string;
   userPassword: string;
   userPhone: string;
+  imageData: string;
   userBirthDate: Date;
   bicycles: BicycleModule[];
 }

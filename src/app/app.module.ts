@@ -33,6 +33,7 @@ import { PaymenthMethodComponent } from './views/paymenth-method/paymenth-method
 import { NotFoundComponent } from './views/not-found/not-found.component';
 import { BicycleDetailComponent } from './views/bicycle-detail/bicycle-detail.component';
 import { EditInfoComponent } from './components/profile/edit-info/edit-info.component';
+import { LoggedInHeaderComponent } from './components/home/logged-in-header/logged-in-header.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { EditInfoComponent } from './components/profile/edit-info/edit-info.comp
     NotFoundComponent,
     BicycleDetailComponent,
     EditInfoComponent,
+    LoggedInHeaderComponent,
   ],
   imports: [
     BrowserModule,

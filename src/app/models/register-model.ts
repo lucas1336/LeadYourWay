@@ -1,6 +1,8 @@
-export interface Register{
-  nombre: string |null;
-  email: string | null;
-  contraseña: string;
-  confirmarContraseña: string;
+export interface Register {
+  userFirstName: string;
+  userLastName: string;
+  userEmail: string;
+  userPassword: string;
+  userPhone: string;
+  userBirthDate: Date;
 }
