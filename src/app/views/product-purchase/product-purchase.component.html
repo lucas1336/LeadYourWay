@@ -1,202 +1,208 @@
 <app-user-header></app-user-header>
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
-  <div class="principal-container">
-    <div class="container d-lg-flex">
-      <div class="box-1 bg-light user">
-          <div class="d-flex align-items-center mb-3 custom-div">
-              <img src="https://images.pexels.com/photos/4925916/pexels-photo-4925916.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                  class="pic rounded-circle" alt="">
-              <p class="ps-2 name">Oliver</p>
-          </div>
-          <div class="box-inner-1 pb-3 mb-3 ">
-              <div class="d-flex justify-content-between mb-3 userdetails">
-                  <p class="fw-bold">Bicicleta a rentar</p>
-                  <p class="fw-lighter"><span class="fas fa-dollar-sign"></span>33.00+</p>
-              </div>
-              <div id="my" class="carousel slide carousel-fade img-details" 
-                  data-bs-interval="2000">
-                  <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#my" data-bs-slide-to="0" class="active"
-                          aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#my" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                      <button type="button" data-bs-target="#my" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  </div>
-                  <div class="carousel-inner">
-                      <div class="carousel-item active">
-                          <img src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                              class="d-block w-100">
-                      </div>
-                      <div class="carousel-item">
-                          <img src="https://images.pexels.com/photos/1068596/pexels-photo-1068596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                              class="d-block w-100 h-100">
-                      </div>
-                      <div class="carousel-item">
-                          <img src="https://images.pexels.com/photos/5465057/pexels-photo-5465057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                              class="d-block w-100">
-                      </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#my" data-bs-slide="prev">
-                      <div class="icon">
-                          <span class="fas fa-arrow-left"></span>
-                      </div>
-                      <span class="visually-hidden">Previous</span>
-                  </button>
-  
-                  <button class="carousel-control-next" type="button" data-bs-target="#my" data-bs-slide="next">
-                      <div class="icon">
-                          <span class="fas fa-arrow-right"></span>
-                      </div>
-                      <span class="visually-hidden">Next</span>
-                  </button>
-              </div>
-              <p class="dis info my-3">Bicicleta de acero. Esta bicicleta de acero es ideal para viajar y 
-                disfrutar de aventuras al aire libre. Con un diseño resistente y duradero, te brinda estabilidad y confianza en cada trayecto.
-              </p>
-              <p class="fw-bold">Aplicar Seguro</p>
-              <div class="radiobtn">
-                  <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" name="box" id="one">
-                  <input type="checkbox" class="btn-check" id="btn-check-2-outlined" autocomplete="off" name="box" id="two">
-                  <input type="checkbox" class="btn-check" id="btn-check-3-outlined" autocomplete="off" name="box" id="three">
-                  <label for="one" class="box py-2 first">
-                      <div class="d-flex align-items-start">
-                          <span class="circle"></span>
-                          <div class="course">
-                              <div class="d-flex align-items-center justify-content-between mb-2">
-                                  <span class="fw-bold">
-                                      Seguro de Responsabilidad Civil
-                                  </span>
-                                  <span class="fas fa-dollar-sign">19</span>
-                              </div>
-                              <span>Cubre daños a terceros en caso de accidentes relacionados a las bicicletas</span>
-                          </div>
-                      </div>
-                  </label>
-                  <label for="two" class="box py-2 second">
-                      <div class="d-flex">
-                          <span class="circle"></span>
-                          <div class="course">
-                              <div class="d-flex align-items-center justify-content-between mb-2">
-                                  <span class="fw-bold">
-                                      Seguro contra Robo o Pérdida
-                                  </span>
-                                  <span class="fas fa-dollar-sign">29</span>
-                              </div>
-                              <span>Proporciona cobertura en caso de robo o pérdida de las bicicletas arrendadas.</span>
-                          </div>
-                      </div>
-                  </label>
-                  <label for="three" class="box py-2 third">
-                      <div class="d-flex">
-                          <span class="circle"></span>
-                          <div class="course">
-                              <div class="d-flex align-items-center justify-content-between mb-2">
-                                  <span class="fw-bold">
-                                      Seguro de Daños o Accidentes
-                                  </span>
-                                  <span class="fas fa-dollar-sign">39</span>
-                              </div>
-                              <span>Cubre daños materiales y lesiones personales a los arrendatarios en caso de accidentes con las bicicletas.</span>
-                          </div>
-                      </div>
-                  </label>
-              </div>
-          </div>
+<div class="principal-container">
+  <div class="container d-lg-flex">
+    <div class="box-1 bg-light user">
+      <div class="d-flex align-items-center mb-3 custom-div">
+        <img
+          src="https://images.pexels.com/photos/4925916/pexels-photo-4925916.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+          class="pic rounded-circle"
+          alt=""
+        />
+        <p class="ps-2 name">Oliver</p>
       </div>
-      <div class="box-2">
-          <div class="box-inner-2">
-              <div>
-                  <p class="my-2 fw-bold">Detalles del Pago</p>
-                  <p class="dis mb-3">Complete su compra y seleccione su método de pago.</p>
-              </div>
-              <form action="">
-                  <div class="mb-3">
-                      <p class="dis fw-bold mb-2">Email address</p>
-                      <input class="form-control" type="email">
-                  </div>
-                  <div class="my-3 cardname">
-                    <p class="dis fw-bold mb-2">Cardholder name</p>
-                    <input class="form-control" type="text">
-                  </div>
-                  <div>
-                    <p class="dis fw-bold mb-2">Select your Card</p>
-                    <div class="card card-atm border rounded mt-3">
-                        <div class="card-body">
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="card" id="visa">
-                            <label class="form-check-label" for="visa">
-                              <div class="d-flex align-items-xxl-center">
-                                <div class="fab fa-cc-visa"></div>
-                                <div class="card-details">
-                                  <span class="card-name">Oliver Tuesta</span>
-                                  <br>
-                                  <span class="card-info">**** **** **** 8652</span>
-                                  <br>
-                                  <span class="card-expiry">Exp: 12/24</span>
-                                </div>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div class="card card-atm border rounded mt-3">
-                        <div class="card-body">
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="card" id="mastercard">
-                            <label class="form-check-label" for="mastercard">
-                              <div class="d-flex align-items-xxl-center">
-                                <div class="fab fa-cc-mastercard"></div>
-                                <div class="card-details">
-                                  <span class="card-name">Bernardo Silva</span>
-                                  <br>
-                                  <span class="card-info">**** **** **** 3442</span>
-                                  <br>
-                                  <span class="card-expiry">Exp: 08/14</span>
-                                </div>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="my-3 address">
-                          <p class="dis fw-bold mb-3">Billing address</p>
-                          <select class="form-select" aria-label="Default select example">
-                              <option selected hidden>Lima</option>
-                              <option value="1">Ayacucho</option>
-                              <option value="2">Cuzco</option>
-                              <option value="3">Arequipa</option>
-                          </select>
-                          <div class="d-flex">
-                              <input class="form-control zip" type="text" placeholder="CP">
-                              <input class="form-control state" type="text" placeholder="Provincia">
-                          </div>
-
-                          <div class="my-3 d-flex flex-column dis">
-                            <p class="dis fw-bold mb-3">Resumen</p>
-                              <div class="d-flex align-items-center justify-content-between mb-2">
-                                  <p>Subtotal</p>
-                                  <p><span class="fas fa-dollar-sign"></span>33.00</p>
-                              </div>
-                              <div class="d-flex align-items-center justify-content-between mb-2">
-                                  <p>Seguro</p>
-                                  <p><span class="fas fa-dollar-sign"></span>19.0</p>
-                              </div>
-                              <div class="d-flex align-items-center justify-content-between mb-2">
-                                  <p class="fw-bold">Total</p>
-                                  <p class="fw-bold"><span class="fas fa-dollar-sign"></span>52.00</p>
-                              </div>
-                              <div class="btn btn-primary mt-2">Pay<span class="fas fa-dollar-sign px-1"></span>52.00
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </form>
+      <div class="box-inner-1 pb-3 mb-3">
+        <div class="d-flex justify-content-between mb-3 userdetails">
+          <p class="fw-bold">Bicicleta a rentar</p>
+          <p class="fw-lighter"><span class="fas fa-dollar-sign"></span>33.00+</p>
+        </div>
+        <div id="my" class="carousel slide carousel-fade img-details" data-bs-interval="2000">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#my" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#my" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#my" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                class="d-block w-100"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://images.pexels.com/photos/1068596/pexels-photo-1068596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="d-block w-100 h-100"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://images.pexels.com/photos/5465057/pexels-photo-5465057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="d-block w-100"
+              />
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#my" data-bs-slide="prev">
+            <div class="icon">
+              <span class="fas fa-arrow-left"></span>
+            </div>
+            <span class="visually-hidden">Previous</span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#my" data-bs-slide="next">
+            <div class="icon">
+              <span class="fas fa-arrow-right"></span>
+            </div>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <p class="dis info my-3">
+          Bicicleta de acero. Esta bicicleta de acero es ideal para viajar y disfrutar de aventuras al aire libre. Con un diseño resistente y
+          duradero, te brinda estabilidad y confianza en cada trayecto.
+        </p>
+        <p class="fw-bold">Aplicar Seguro</p>
+        <div class="radiobtn">
+          <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" name="box" id="one" />
+          <input type="checkbox" class="btn-check" id="btn-check-2-outlined" autocomplete="off" name="box" id="two" />
+          <input type="checkbox" class="btn-check" id="btn-check-3-outlined" autocomplete="off" name="box" id="three" />
+          <label for="one" class="box py-2 first">
+            <div class="d-flex align-items-start">
+              <span class="circle"></span>
+              <div class="course">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="fw-bold"> Seguro de Responsabilidad Civil </span>
+                  <span class="fas fa-dollar-sign">19</span>
+                </div>
+                <span>Cubre daños a terceros en caso de accidentes relacionados a las bicicletas</span>
+              </div>
+            </div>
+          </label>
+          <label for="two" class="box py-2 second">
+            <div class="d-flex">
+              <span class="circle"></span>
+              <div class="course">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="fw-bold"> Seguro contra Robo o Pérdida </span>
+                  <span class="fas fa-dollar-sign">29</span>
+                </div>
+                <span>Proporciona cobertura en caso de robo o pérdida de las bicicletas arrendadas.</span>
+              </div>
+            </div>
+          </label>
+          <label for="three" class="box py-2 third">
+            <div class="d-flex">
+              <span class="circle"></span>
+              <div class="course">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="fw-bold"> Seguro de Daños o Accidentes </span>
+                  <span class="fas fa-dollar-sign">39</span>
+                </div>
+                <span>Cubre daños materiales y lesiones personales a los arrendatarios en caso de accidentes con las bicicletas.</span>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="box-2">
+      <div class="box-inner-2">
+        <div>
+          <p class="my-2 fw-bold">Detalles del Pago</p>
+          <p class="dis mb-3">Complete su compra y seleccione su método de pago.</p>
+        </div>
+        <form action="">
+          <div class="mb-3">
+            <p class="dis fw-bold mb-2">Email address</p>
+            <input class="form-control" type="email" />
+          </div>
+          <div class="my-3 cardname">
+            <p class="dis fw-bold mb-2">Cardholder name</p>
+            <input class="form-control" type="text" />
+          </div>
+          <div>
+            <p class="dis fw-bold mb-2">Select your Card</p>
+            <div class="card card-atm border rounded mt-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="card" id="visa" />
+                  <label class="form-check-label" for="visa">
+                    <div class="d-flex align-items-xxl-center">
+                      <div class="fab fa-cc-visa"></div>
+                      <div class="card-details">
+                        <span class="card-name">Oliver Tuesta</span>
+                        <br />
+                        <span class="card-info">**** **** **** 8652</span>
+                        <br />
+                        <span class="card-expiry">Exp: 12/24</span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card-atm border rounded mt-3">
+              <div class="card-body">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="card" id="mastercard" />
+                  <label class="form-check-label" for="mastercard">
+                    <div class="d-flex align-items-xxl-center">
+                      <div class="fab fa-cc-mastercard"></div>
+                      <div class="card-details">
+                        <span class="card-name">Bernardo Silva</span>
+                        <br />
+                        <span class="card-info">**** **** **** 3442</span>
+                        <br />
+                        <span class="card-expiry">Exp: 08/14</span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="my-3 address">
+              <p class="dis fw-bold mb-3">Billing address</p>
+              <select class="form-select" aria-label="Default select example">
+                <option selected hidden>Lima</option>
+                <option value="1">Ayacucho</option>
+                <option value="2">Cuzco</option>
+                <option value="3">Arequipa</option>
+              </select>
+              <div class="d-flex">
+                <input class="form-control zip" type="text" placeholder="CP" />
+                <input class="form-control state" type="text" placeholder="Provincia" />
+              </div>
+
+              <div class="my-3 d-flex flex-column dis">
+                <p class="dis fw-bold mb-3">Resumen</p>
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <p>Subtotal</p>
+                  <p><span class="fas fa-dollar-sign"></span>33.00</p>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <p>Seguro</p>
+                  <p><span class="fas fa-dollar-sign"></span>19.0</p>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <p class="fw-bold">Total</p>
+                  <p class="fw-bold"><span class="fas fa-dollar-sign"></span>52.00</p>
+                </div>
+                <button mat-button class="btn btn-primary mt-2" (click)="openDialog()">Pay<span class="fas fa-dollar-sign px-1"></span>52.00</button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
