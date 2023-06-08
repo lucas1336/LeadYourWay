@@ -1,54 +1,57 @@
 <app-user-header></app-user-header>
 <section class="">
-  <div *ngIf="user">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card mb-4">
-            <app-profile-info [user]="user"></app-profile-info>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <app-profile-info [user]="user"></app-profile-info>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <app-payment-methods [user]="user"></app-payment-methods>
           </div>
-          <div class="card mb-4 mb-lg-0">
-            <div class="card-body p-0">
-              <app-payment-methods [user]="user"></app-payment-methods>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ user.userFirstName }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ user.userEmail }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ user.userPhone }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <button class="btn btn-primary" (click)="logout()">Cerrar sesión</button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-8">
-          <div class="card mb-4">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Full Name</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{ user.userFirstName }}</p>
-                </div>
-              </div>
-              <hr />
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Email</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{ user.userEmail }}</p>
-                </div>
-              </div>
-              <hr />
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Phone</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">{{ user.userPhone }}</p>
-                </div>
-              </div>
-              <hr />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <app-bicycle-list title="Bicicletas" [user]="user" [bicycles]="user.bicycles"></app-bicycle-list>
-            </div>
+        <div class="row">
+          <div class="col-md-6">
+            <app-bicycle-list title="Bicicletas" [user]="user" [bicycles]="user.bicycles"></app-bicycle-list>
           </div>
         </div>
       </div>

@@ -46,6 +46,11 @@ export class ProfileComponent {
       this.getUser();
     }
   }
+
+  logout() {
+    localStorage.removeItem('id');
+  }
+
   getUserInfoById(id: string | null) {
     this.userInfoService.getItem(id).subscribe((response: any) => {
       this.UserInfoData = response;
