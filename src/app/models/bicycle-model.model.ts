@@ -6,5 +6,4 @@ export interface BicycleModule {
   bicycleSize: string;
   bicycleModel: string;
   imageData: null;
-  availabilities: Array<any>;
 }
