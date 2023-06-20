@@ -67,7 +67,6 @@ export class AddBicycleComponent {
       bicycleSize: this.firstFormGroup.get('size')?.value,
       bicycleModel: this.secondFormGroup.get('model')?.value,
       imageData: null,
-      availabilities: [],
     };
 
     this.bicycleService.createItem(Number(this.id), this.bicycle).subscribe((data) => {
