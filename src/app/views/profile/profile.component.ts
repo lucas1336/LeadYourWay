@@ -4,6 +4,7 @@ import { UserModule } from 'src/app/models/user/user.module';
 import { UserInfo } from 'src/app/models/user/userinformation.module';
 import { UserService } from 'src/app/services/user.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -23,6 +24,7 @@ export class ProfileComponent {
   constructor(
     private userService: UserService,
     private userInfoService: UserService,
+    private rout: Router,
     calendar: NgbCalendar
   ) {
     this.UserData = {} as UserModule;
@@ -49,6 +51,7 @@ export class ProfileComponent {
 
   logout() {
     localStorage.removeItem('id');
+    this.rout.navigate(['/home']);
   }
 
   getUserInfoById(id: string | null) {
