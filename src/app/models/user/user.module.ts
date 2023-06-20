@@ -1,4 +1,5 @@
 import { BicycleModule } from 'src/app/models/bicycle-model.model';
+import { CardModule } from 'src/app/models/card.module';
 
 export interface UserModule {
   userFirstName: string;
@@ -9,4 +10,5 @@ export interface UserModule {
   imageData: string;
   userBirthDate: Date;
   bicycles: BicycleModule[];
+  cards: CardModule[];
 }
