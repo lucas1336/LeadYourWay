@@ -10,5 +10,10 @@
       <p class="mb-0">1234 1234 4321 1235</p>
     </li>
   </ul>
-  <button type="button" class="btn btn-outline-primary w-5 btn-sm btn-primary">Editar información</button>
+  <div class="row ">
+    <div class="d-flex justify-content-center mb-2">
+      <button type="button" class="btn btn-outline-primary ms-1 btn-primary" [routerLink]="['/payment/edit']">Editar información</button>
+      <button type="button" class="btn btn-outline-primary ms-1 btn-primary" (click)="onSubmit()">Añadir método</button>
+    </div>
+  </div>
 </div>

@@ -104,7 +104,7 @@ export class PaymenthMethodComponent {
     this.PaymentData.cardType = this.PaymentData.cardType; // Guardar el valor seleccionado
     console.log('PaymentData:', this.PaymentData);
     console.log('PaymentData:', this.PaymentData);
-    this.paymentMethodService.createItem(this.PaymentData).subscribe(
+    this.paymentMethodService.createItem(this.PaymentData.id, this.PaymentData).subscribe(
       (response) => {
         console.log('Response:', response);
       },
