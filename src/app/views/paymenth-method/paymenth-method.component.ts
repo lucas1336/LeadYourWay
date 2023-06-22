@@ -24,7 +24,8 @@ export class PaymenthMethodComponent {
     this.month = "";
   }
   
-
+  userId = localStorage.getItem('id');
+  
   onSubmit() {
     if (this.PaymentForm.invalid) {
       this.openSnackBar('Invalid data');
@@ -97,15 +98,15 @@ export class PaymenthMethodComponent {
     return yearPattern.test(year);
   }
   
-
   addPayment() {
-    this.PaymentData.id = 0;
-    if(this.PaymentData.id==0) this.PaymentData.cardMain = true;
+    if(this.PaymentData.id==1) this.PaymentData.cardMain = true;
+    else this.PaymentData.cardMain = false;
     this.PaymentData.cardAmount = "10000.00";
+    this.PaymentData.cardMain = true;
     this.updateCardExpirationDate();
     this.PaymentData.cardType = this.PaymentData.cardType; // Guardar el valor seleccionado
     console.log('PaymentData:', this.PaymentData);
-    this.paymentMethodService.createItem(this.PaymentData).subscribe(
+    this.paymentMethodService.createItem(this.userId, this.PaymentData).subscribe(
       (response) => {
         console.log('Response:', response);
       },
