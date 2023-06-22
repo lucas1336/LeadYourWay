@@ -5,6 +5,17 @@
   margin: 20px;
 }
 
+.card-height {
+  height: 390px;
+}
+
+.description-height {
+  height: 50px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .card {
   margin-bottom: 40px;
   border: none;

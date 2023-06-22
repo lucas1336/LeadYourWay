@@ -7,6 +7,8 @@ import { UserService } from 'src/app/services/user.service';
 import { BicycleService } from 'src/app/services/bicycle.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { forEach } from 'lodash';
+import { RentService } from 'src/app/services/rent.service';
+import { RentModule } from 'src/app/models/rent.module';
 
 @Component({
   selector: 'app-product-purchase',
@@ -17,20 +19,31 @@ export class ProductPurchaseComponent {
   user!: UserModule;
   bicycle!: BicycleModule;
   cardArray: CardModule[] = [];
+  rent!: RentModule;
   userId = '';
   bikeId = '';
+  selectedCardId = 0;
   precioSubTotal = 0;
   precioSeguro = 0;
   checkedSeguro1 = false;
   checkedSeguro2 = false;
   checkedSeguro3 = false;
+  toDate: string | null;
+  fromDate: string | null;
+  totalDays: number | undefined;
+  totalCost: number | undefined;
 
   constructor(
     private router: Router,
     public dialog: MatDialog,
     private userService: UserService,
-    private bicycleService: BicycleService
-  ) {}
+    private bicycleService: BicycleService,
+    private rentService: RentService
+  ) {
+    this.toDate = localStorage.getItem('toDate');
+    this.fromDate = localStorage.getItem('fromDate');
+    this.getNumberOfDays();
+  }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('id') || '';
@@ -42,37 +55,47 @@ export class ProductPurchaseComponent {
   getUser() {
     this.userService.getItem(this.userId).subscribe((response: any) => {
       this.user = response;
+      console.log(response);
       var mainFound = false;
       var oneCard = false;
       forEach(this.user.cards, (card) => {
         if (card.cardMain) {
           mainFound = true;
           this.cardArray.push(card);
-        }
-        if (!mainFound || !oneCard) {
+        } else if (!oneCard) {
           this.cardArray.push(card);
           oneCard = true;
         }
       });
-      console.log(this.cardArray);
     });
   }
 
   getBike() {
     this.bicycleService.getItem(Number(this.bikeId)).subscribe((response: any) => {
       this.bicycle = response;
-      this.precioSubTotal = this.bicycle.bicyclePrice;
+      this.getTotalCost();
     });
   }
 
   openDialog() {
-    const dialogRef: MatDialogRef<any> = this.dialog.open(DialogContentComponent, {
-      data: 'Purchase Complete',
-    });
+    this.rent = {
+      rentStartDate: this.fromDate || '',
+      rentEndDate: this.toDate || '',
+      rentPrice: this.totalCost || 0,
+      bicycleId: Number(this.bikeId),
+      cardId: this.selectedCardId,
+    };
+    confirm('¿Desea realizar la compra?');
 
-    dialogRef.afterClosed().subscribe(() => {
-      localStorage.removeItem('bicycleId');
-      this.router.navigate(['/search']);
+    this.rentService.createItem(this.rent).subscribe((response: any) => {
+      const dialogRef: MatDialogRef<any> = this.dialog.open(DialogContentComponent, {
+        data: 'Purchase Complete',
+      });
+
+      dialogRef.afterClosed().subscribe(() => {
+        localStorage.removeItem('bicycleId');
+        this.router.navigate(['/search']);
+      });
     });
   }
 
@@ -113,7 +136,34 @@ export class ProductPurchaseComponent {
       price += 39;
     }
     this.precioSeguro = price;
-    console.log(this.checkedSeguro1);
+  }
+
+  getNumberOfDays() {
+    if (this.toDate && this.fromDate) {
+      const date1 = new Date(this.toDate);
+      const date2 = new Date(this.fromDate);
+      const diffTime = Math.abs(date2.getTime() - date1.getTime());
+      this.totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    }
+  }
+
+  getTotalCost() {
+    if (this.totalDays && this.bicycle) {
+      this.totalCost = this.totalDays * this.bicycle.bicyclePrice;
+    }
+    this.precioSubTotal = this.totalCost || 0;
+  }
+
+  cardSelectChange(id: number) {
+    this.selectedCardId = id;
+  }
+
+  validateCard() {
+    if (this.selectedCardId <= 0) {
+      alert('Seleccione una tarjeta');
+    } else {
+      this.openDialog();
+    }
   }
 }
 

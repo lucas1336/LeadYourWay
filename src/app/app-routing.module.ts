@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'search', component: SearchBicycleComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'product-purchase', component: ProductPurchaseComponent },
+  { path: 'reservation', component: ProductPurchaseComponent },
   { path: 'create', component: AddBicycleComponent },
   { path: 'payment-method', component: PaymenthMethodComponent },
   { path: 'bicycles', component: BicycleDetailComponent },

@@ -2,14 +2,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <div class="row">
-  <div class="card">
+  <div class="card card-height">
     <img [src]="bicycle.imageData" class="card-img-top" alt="{{ bicycle.bicycleDescription }}" />
     <div class="card-body">
       <h5 class="card-title">{{ bicycle.bicycleModel }}</h5>
-      <p class="card-text">{{ bicycle.bicycleDescription }}</p>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Precio por hora: S/.{{ bicycle.bicyclePrice }}</li>
-      </ul>
+      <p class="card-text description-height">{{ bicycle.bicycleDescription }}</p>
+      <p class="card-text">Precio por hora: S/.{{ bicycle.bicyclePrice }}</p>
+      <button class="btn btn-primary" (click)="onReserve(bicycle.id)">Rentar</button>
     </div>
   </div>
 </div>

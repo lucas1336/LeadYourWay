@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { BicycleModule } from 'src/app/models/bicycle-model.model';
-import { ActivatedRoute } from '@angular/router';
 import { BicycleService } from 'src/app/services/bicycle.service';
-import { NgbDate, NgbCalendar, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
-import { JsonPipe } from '@angular/common';
+import { Router } from '@angular/router';
+import { UserModule } from 'src/app/models/user/user.module';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-bicycle-detail',
@@ -15,22 +14,26 @@ export class BicycleDetailComponent {
   bicycleId: number | undefined;
   bicycle: BicycleModule | undefined;
 
-  hoveredDate: NgbDate | null = null;
+  userId = '';
 
-  fromDate: NgbDate;
-  toDate: NgbDate | null = null;
+  toDate: string | null;
+  fromDate: string | null;
+  totalDays: number | undefined;
+  totalCost: number | undefined;
 
   constructor(
-    private route: ActivatedRoute,
     private bicycleService: BicycleService,
-    calendar: NgbCalendar
+    private router: Router,
+    private userService: UserService
   ) {
     this.bicycleId = Number(localStorage.getItem('bicycleId'));
-    this.fromDate = calendar.getToday();
-    this.toDate = calendar.getNext(calendar.getToday(), 'd', 3);
+    this.toDate = localStorage.getItem('toDate');
+    this.fromDate = localStorage.getItem('fromDate');
+    this.getNumberOfDays();
   }
 
   ngOnInit(): void {
+    this.userId = localStorage.getItem('id') || '';
     this.getBicycle();
   }
 
@@ -38,6 +41,7 @@ export class BicycleDetailComponent {
     if (this.bicycleId) {
       this.bicycleService.getItem(this.bicycleId).subscribe((bicycle) => {
         this.bicycle = bicycle;
+        this.getTotalCost();
       });
     }
   }
@@ -50,37 +54,32 @@ export class BicycleDetailComponent {
     return (rating / 5) * 100;
   }
 
-  onDateSelection(date: NgbDate) {
-    if (!this.fromDate && !this.toDate) {
-      this.fromDate = date;
-    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
-      this.toDate = date;
-    } else {
-      this.toDate = null;
-      this.fromDate = date;
+  getNumberOfDays() {
+    if (this.toDate && this.fromDate) {
+      const date1 = new Date(this.toDate);
+      const date2 = new Date(this.fromDate);
+      const diffTime = Math.abs(date2.getTime() - date1.getTime());
+      this.totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     }
   }
 
-  isHovered(date: NgbDate) {
-    return (
-      this.fromDate &&
-      !this.toDate &&
-      this.hoveredDate &&
-      date.after(this.fromDate) &&
-      date.before(this.hoveredDate)
-    );
+  getTotalCost() {
+    if (this.totalDays && this.bicycle) {
+      this.totalCost = this.totalDays * this.bicycle.bicyclePrice;
+    }
   }
 
-  isInside(date: NgbDate) {
-    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
-  }
-
-  isRange(date: NgbDate) {
-    return (
-      date.equals(this.fromDate) ||
-      (this.toDate && date.equals(this.toDate)) ||
-      this.isInside(date) ||
-      this.isHovered(date)
-    );
+  onReserve() {
+    this.userService.getItem(this.userId).subscribe((response: any) => {
+      var userInfo = response.cards.length;
+      if (userInfo > 0) {
+        this.router.navigate(['/reservation']);
+      } else {
+        alert(
+          'Para reservar debes agregar una tarjeta\nSera redirigido a su perfil para agregar una tarjeta'
+        );
+        this.router.navigate(['/profile']);
+      }
+    });
   }
 }

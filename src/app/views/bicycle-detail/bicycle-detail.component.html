@@ -2,32 +2,19 @@
   <div class="container-md">
     <div class="card m-3 p-3">
       <h1 class="card-title text-center fw-bold">{{ bicycle.bicycleModel }}</h1>
-      <img [src]="bicycle.imageData" class="card-img-top" alt="{{ bicycle.bicycleDescription }}" />
-      <div class="card-body">
-        <p class="card-text">{{ bicycle.bicycleDescription }}</p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Precio por hora: {{ bicycle.bicyclePrice }} €</li>
-        </ul>
-        <hr />
-        <form action="" class="d-flex flex-column">
-          <h2>Seleccione un rango de fechas:</h2>
-          <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" class="calendar" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
-          </ngb-datepicker>
-
-          <ng-template #t let-date let-focused="focused">
-            <span
-              class="custom-day"
-              [class.focused]="focused"
-              [class.range]="isRange(date)"
-              [class.faded]="isHovered(date) || isInside(date)"
-              (mouseenter)="hoveredDate = date"
-              (mouseleave)="hoveredDate = null"
-            >
-              {{ date.day }}
-            </span>
-          </ng-template>
-          <a class="btn btn-primary mt-3" [ngClass]="{}" [routerLink]="['/product-purchase']">Proceder con el pago</a>
-        </form>
+      <div class="containerImgAndData">
+        <div class="containerBox text-center">
+          <img [src]="bicycle.imageData" class="card-img-top" alt="{{ bicycle.bicycleDescription }}" />
+        </div>
+        <div class="card-body containerBox">
+          <p class="card-text"><b>Descripción de la bicicleta:</b></p>
+          <p class="card-text">{{ bicycle.bicycleDescription }}</p>
+          <p class="card-text"><b>Precio por hora de la bicicleta:</b></p>
+          <p class="card-text">S/.{{ bicycle.bicyclePrice }} por dia</p>
+          <p class="card-text"><b>Costo aproximado según las fechas seleccionadas:</b></p>
+          <p class="card-text">S/.{{ totalCost }}</p>
+          <button class="btn btn-primary" (click)="onReserve()">Rentar</button>
+        </div>
       </div>
     </div>
   </div>

@@ -49,3 +49,12 @@ img {
   height: auto;
   margin: 50px auto;
 }
+
+.containerImgAndData {
+  flex: wrap;
+  display: flex;
+}
+
+.containerBox {
+  width: 50%;
+}
