@@ -27,9 +27,9 @@ export class PaymentMethodService {
       .get(`${this.base_Url}/cards/${id}`)
       .pipe(retry(3), catchError(this.handleError));
   }
-  createItem(id: number, card: PaymentMethod): Observable<any> {
+  createItem(card: PaymentMethod): Observable<any> {
     return this.http
-      .post(`${this.base_Url}/cards/${id}`, card)
+      .post(`${this.base_Url}/cards/1`, card)
       .pipe(retry(3), catchError(this.handleError));
   }
 }

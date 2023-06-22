@@ -36,7 +36,7 @@ export class PaymenthMethodComponent {
       return;
     }
   
-    if (!this.isValidCVV(this.PaymentData.cardCVV)) {
+    if (!this.isValidCVV(this.PaymentData.cardCvv)) {
       this.openSnackBar('Invalid data');
       return;
     }
@@ -100,11 +100,12 @@ export class PaymenthMethodComponent {
 
   addPayment() {
     this.PaymentData.id = 0;
+    if(this.PaymentData.id==0) this.PaymentData.cardMain = true;
+    this.PaymentData.cardAmount = "10000.00";
     this.updateCardExpirationDate();
     this.PaymentData.cardType = this.PaymentData.cardType; // Guardar el valor seleccionado
     console.log('PaymentData:', this.PaymentData);
-    console.log('PaymentData:', this.PaymentData);
-    this.paymentMethodService.createItem(this.PaymentData.id, this.PaymentData).subscribe(
+    this.paymentMethodService.createItem(this.PaymentData).subscribe(
       (response) => {
         console.log('Response:', response);
       },
