@@ -12,6 +12,11 @@ export class CardBicyleComponent {
   constructor(private router: Router) {}
 
   onReserve(id: number) {
+    if (!localStorage.getItem('id')) {
+      alert('Porfavor inicie sesión o registrese para poder reservar');
+      this.router.navigate(['/signup']);
+      return;
+    }
     localStorage.setItem('bicycleId', String(this.bicycle.id));
     this.router.navigate(['/bicycles']);
   }
