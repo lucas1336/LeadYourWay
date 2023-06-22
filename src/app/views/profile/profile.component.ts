@@ -92,4 +92,10 @@ export class ProfileComponent {
       this.isHovered(date)
     );
   }
+
+  formatNumber() {
+    var userNumber = this.user.userPhone;
+    var formattedNumber = userNumber.replace(/(\d{3})(\d{3})(\d{3})/, '$1-$2-$3');
+    return formattedNumber;
+  }
 }

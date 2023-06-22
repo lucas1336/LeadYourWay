@@ -5,4 +5,5 @@ export interface Register {
   userPassword: string;
   userPhone: string;
   userBirthDate: Date;
+  imageData: string;
 }

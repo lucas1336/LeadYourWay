@@ -5,5 +5,5 @@ export interface BicycleModule {
   bicyclePrice: number;
   bicycleSize: string;
   bicycleModel: string;
-  imageData: null;
+  imageData: string;
 }

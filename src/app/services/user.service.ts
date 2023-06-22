@@ -32,7 +32,6 @@ export class UserService {
   }
 
   getItem(id: string | null): Observable<UserModule> {
-    console.log(id);
     return this.http
       .get<UserModule>(`${this.base_Url}/users/${id}`)
       .pipe(retry(2), catchError(this.handleError));

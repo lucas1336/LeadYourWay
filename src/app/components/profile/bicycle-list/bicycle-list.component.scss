@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex: wrap;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.no-margin {
+  margin-bottom: 0;
+  margin-right: 2em;
+}
+
+.custom-margin {
+  margin-bottom: auto;
+  margin-top: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.right-side {
+  width: 50%;
+  margin-left: auto;
+}
+
+.left-side {
+  width: 50%;
+  margin-right: auto;
+}
+
+img {
+  height: 50px;
+  width: auto;
+}

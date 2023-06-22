@@ -34,6 +34,7 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
 import { BicycleDetailComponent } from './views/bicycle-detail/bicycle-detail.component';
 import { EditInfoComponent } from './components/profile/edit-info/edit-info.component';
 import { LoggedInHeaderComponent } from './components/home/logged-in-header/logged-in-header.component';
+import { DialogBoxComponent } from './components/toasts/dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { LoggedInHeaderComponent } from './components/home/logged-in-header/logg
     BicycleDetailComponent,
     EditInfoComponent,
     LoggedInHeaderComponent,
+    DialogBoxComponent,
   ],
   imports: [
     BrowserModule,

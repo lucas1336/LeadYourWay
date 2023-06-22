@@ -48,6 +48,7 @@ export class SignupComponent {
       currentDate.getDate()
     );
     this.RegisterData.userBirthDate = eighteenYearsAgo;
+    this.RegisterData.imageData = 'https://robohash.org/' + this.RegisterData.userFirstName;
     this.userService.createItem(this.RegisterData).subscribe(
       (response) => {
         this.userService

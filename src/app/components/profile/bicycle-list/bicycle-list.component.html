@@ -1,8 +1,18 @@
 <div class="card mb-4 mb-md-0">
   <div class="card-body">
-    <p class="mb-4">{{ title }}</p>
-    <div *ngFor="let bicycle of bicycles" class="mb-4">
-      <p class="mb-1" style="font-size: 0.77rem">{{ bicycle.bicycleName }}</p>
+    <div class="container center">
+      <p class="no-margin">{{ title }}</p>
+      <button class="btn btn-primary" (click)="navigateToCreate()">Agregar una bicicleta</button>
+    </div>
+    <div *ngFor="let bicycle of bicycles" class="mt-5">
+      <div class="container">
+        <div class="right-side container">
+          <p class="custom-margin" style="font-size: 0.77rem">{{ bicycle.bicycleName }}</p>
+        </div>
+        <div class="left-side">
+          <img src="{{ bicycle.imageData }}" alt="{{ bicycle.bicycleDescription }}" />
+        </div>
+      </div>
     </div>
   </div>
 </div>

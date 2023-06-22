@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BicycleService } from 'src/app/services/bicycle.service';
+import { UserService } from 'src/app/services/user.service';
 import { BicycleModule } from 'src/app/models/bicycle-model.model';
-
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DialogBoxComponent } from 'src/app/components/toasts/dialog-box/dialog-box.component';
 @Component({
   selector: 'app-add-bicycle',
   templateUrl: './add-bicycle.component.html',
@@ -21,7 +23,9 @@ export class AddBicycleComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private bicycleService: BicycleService
+    private bicycleService: BicycleService,
+    private userService: UserService,
+    public dialog: MatDialog
   ) {
     this.firstFormGroup = new FormGroup({
       title: new FormControl('', Validators.required),
@@ -42,10 +46,25 @@ export class AddBicycleComponent {
   }
 
   ngOnInit() {
-    this.bicycleService.getItem(Number(this.id)).subscribe(
-      (data) => {},
+    this.userService.getItem(this.id).subscribe(
+      (data) => {
+        if (data.cards.length <= 0) {
+          const dialogRef: MatDialogRef<any> = this.dialog.open(DialogBoxComponent, {
+            data: {
+              title: 'Error',
+              message: 'Para publicar una bicicleta debe tener una tarjeta registrada',
+            },
+          });
+          this.router.navigate(['/profile']);
+        }
+      },
       (error) => {
-        alert('Error retrieving data. Please login to continue.');
+        const dialogRef: MatDialogRef<any> = this.dialog.open(DialogBoxComponent, {
+          data: {
+            title: 'Error',
+            message: 'Porfavor inicie sesion para poder publicar una bicicleta',
+          },
+        });
         this.router.navigate(['/home']);
       }
     );
@@ -53,7 +72,12 @@ export class AddBicycleComponent {
 
   onSubmit() {
     if (!this.validateForms()) {
-      alert('Llena todos los campos');
+      const dialogRef: MatDialogRef<any> = this.dialog.open(DialogBoxComponent, {
+        data: {
+          title: 'Error',
+          message: 'Llena todos los campos',
+        },
+      });
       return;
     }
 
@@ -66,10 +90,16 @@ export class AddBicycleComponent {
       bicyclePrice: this.firstFormGroup.get('price')?.value,
       bicycleSize: this.firstFormGroup.get('size')?.value,
       bicycleModel: this.secondFormGroup.get('model')?.value,
-      imageData: null,
+      imageData: this.thirdFormGroup.get('image')?.value,
     };
 
     this.bicycleService.createItem(Number(this.id), this.bicycle).subscribe((data) => {
+      const dialogRef: MatDialogRef<any> = this.dialog.open(DialogBoxComponent, {
+        data: {
+          title: 'Exitoso',
+          message: 'Se registro su bicicleta con exito!',
+        },
+      });
       this.router.navigate(['/search']);
     });
 
