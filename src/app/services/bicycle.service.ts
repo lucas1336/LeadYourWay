@@ -52,11 +52,9 @@ export class BicycleService {
       .pipe(retry(3), catchError(this.handleError));
   }
 
-  // get bicycle list by user date range
-  // pasing two parameters to backend
   getBicyclesByDateRange(startDate: string, endDate: string): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/bicycles/dateRange?start_date=${startDate}&end_date=${endDate}`)
+      .get(`${this.base_Url}/bicycles/available?start_date=${startDate}&end_date=${endDate}`)
       .pipe(retry(3), catchError(this.handleError));
   }
 }

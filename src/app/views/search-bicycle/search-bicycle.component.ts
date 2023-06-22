@@ -17,6 +17,7 @@ export class SearchBicycleComponent {
 
   fromDate: NgbDate;
   toDate: NgbDate | null = null;
+  today: NgbDate | null = null;
 
   bicycles: BicycleModule[] = [];
 
@@ -34,11 +35,17 @@ export class SearchBicycleComponent {
 
   getBicyclesByDateRange(): void {
     if (this.fromDate && this.toDate) {
-      const fromDate: string = `${this.fromDate.year}-${this.fromDate.month}-${this.fromDate.day}`;
-      const toDate: string = `${this.toDate.year}-${this.toDate.month}-${this.toDate.day}`;
+      const fromDate: string = `${this.fromDate.year}-${
+        this.fromDate.month < 10 ? '0' + this.fromDate.month : this.fromDate.month
+      }-${this.fromDate.day < 10 ? '0' + this.fromDate.day : this.fromDate.day}`;
+      const toDate: string = `${this.toDate.year}-${
+        this.toDate.month < 10 ? '0' + this.toDate.month : this.toDate.month
+      }-${this.toDate.day < 10 ? '0' + this.toDate.day : this.toDate.day}`;
       this.bicycleService.getBicyclesByDateRange(fromDate, toDate).subscribe((bicycles) => {
         this.bicycles = bicycles;
       });
+      localStorage.setItem('fromDate', fromDate);
+      localStorage.setItem('toDate', toDate);
     }
   }
 
@@ -53,8 +60,9 @@ export class SearchBicycleComponent {
     private bicycleService: BicycleService,
     private router: Router
   ) {
-    this.fromDate = calendar.getToday();
-    this.toDate = calendar.getNext(calendar.getToday(), 'd', 3);
+    this.today = calendar.getToday();
+    this.fromDate = calendar.getNext(calendar.getToday(), 'd', 1);
+    this.toDate = calendar.getNext(this.fromDate, 'd', 3);
   }
 
   onDateSelection(date: NgbDate) {

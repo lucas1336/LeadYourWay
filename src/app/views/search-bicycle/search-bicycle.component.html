@@ -11,7 +11,17 @@
 
 <div class="d-flex flex-column">
   <h2>Seleccione un rango de fechas:</h2>
-  <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" class="calendar" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
+  <ngb-datepicker
+    *ngIf="this.today"
+    [minDate]="{ year: today.year, month: today.month, day: today.day + 1 }"
+    [maxDate]="{ year: today.year + 1, month: today.month, day: today.day }"
+    #dp
+    (dateSelect)="onDateSelection($event)"
+    class="calendar"
+    [displayMonths]="2"
+    [dayTemplate]="t"
+    outsideDays="hidden"
+  >
   </ngb-datepicker>
 
   <ng-template #t let-date let-focused="focused">
