@@ -36,25 +36,29 @@ export class PaymenthMethodComponent {
     }
   
     if (!this.isValidCardNumber(this.PaymentData.cardNumber)) {
-      this.openSnackBar('Invalid data');
+      this.openSnackBar('Invalid card number');
       return;
     }
   
     if (!this.isValidCVV(this.PaymentData.cardCvv)) {
-      this.openSnackBar('Invalid data');
+      this.openSnackBar('Invalid card CVV');
       return;
     }
   
     if (!this.isValidExpirationMonth(this.month)) {
-      this.openSnackBar('Invalid data');
+      this.openSnackBar('Invalid month');
       return;
     }
   
     if (!this.isValidExpirationYear(this.year)) {
-      this.openSnackBar('Invalid data');
+      this.openSnackBar('Invalid year');
       return;
     }
   
+    if(this.PaymentData.cardType == null){
+      this.openSnackBar("Invalid card type");
+      return;
+    }
     // Perform the payment submission
     this.addPayment();
     this.openDialog();
