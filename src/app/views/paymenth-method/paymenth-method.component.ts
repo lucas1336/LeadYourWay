@@ -3,7 +3,8 @@ import { NgForm } from '@angular/forms';
 import { PaymentMethod } from 'src/app/models/payment-method/payment-method.model';
 import { PaymentMethodService } from 'src/app/services/payment-method.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { MatDialog } from '@angular/material/dialog';
+import { DialogPaymentComponent } from '../dialog-payment/dialog-payment.component';
 
 @Component({
   selector: 'app-paymenth-method',
@@ -18,10 +19,12 @@ export class PaymenthMethodComponent {
   year: string;
   month: string;
 
-  constructor(private paymentMethodService: PaymentMethodService, private snackBar: MatSnackBar) {
+  constructor(private paymentMethodService: PaymentMethodService, private snackBar: MatSnackBar
+    ,private dialog: MatDialog) {
     this.PaymentData = {} as PaymentMethod;
     this.year = "";
     this.month = "";
+  
   }
   
   userId = localStorage.getItem('id');
@@ -54,6 +57,7 @@ export class PaymenthMethodComponent {
   
     // Perform the payment submission
     this.addPayment();
+    this.openDialog();
     console.log('Valid');
   }
   
@@ -119,5 +123,14 @@ export class PaymenthMethodComponent {
   updateCardExpirationDate() {
     this.PaymentData.cardExpirationDate = `${this.year}-${this.month}-06`;
   }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogPaymentComponent, {
+      height: '20%',
+      width:'20%'
+    });
 
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }

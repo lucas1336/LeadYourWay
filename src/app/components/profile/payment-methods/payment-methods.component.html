@@ -1,13 +1,18 @@
 <div class="card-body p-0 d-flex flex-column justify-contnet-center">
-  <p class="fw-normal m-3">Métodos de pago</p>
+  <div class="d-flex justify-content-between m-3">
+    <p class="fw-normal">Métodos de pago</p>
+    <p class="fw-normal">Saldo disponible</p>
+  </div>
   <ul class="list-group list-group-flush rounded-3">
     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
       <i class="fa-brands fa-paypal fa-lg" style="color: #003087"></i>
       <p class="mb-0">{{ user.userFirstName }}</p>
+      <p class="mb-0">1540.5</p>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
       <i class="fa-brands fa-cc-visa" style="color: #1a1f71"></i>
       <p class="mb-0">1234 1234 4321 1235</p>
+      <p class="mb-0">1000.0</p>
     </li>
   </ul>
   <div class="row ">
