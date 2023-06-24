@@ -7,8 +7,15 @@ import { CardDtoModule } from '../models/cardDto.module';
   providedIn: 'root',
 })
 export class PaymentMethodService {
-  private base_Url = 'http://localhost:8080/api/leadyourway/v1';
+  private base_Url = 'http://localhost:8080/api/leadyourway/v1/cards';
   constructor(private http: HttpClient) {}
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer '+localStorage.getItem("token")
+    }),
+  };
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -24,12 +31,12 @@ export class PaymentMethodService {
 
   getItem(id: number): Observable<any> {
     return this.http
-      .get(`${this.base_Url}/cards/${id}`)
+      .get(`${this.base_Url}/${id}`)
       .pipe(retry(3), catchError(this.handleError));
   }
   createItem(id: string | null, card: CardDtoModule): Observable<any> {
     return this.http
-      .post(`${this.base_Url}/cards/${id}`, card)
+      .post(`${this.base_Url}/${id}`, card)
       .pipe(retry(3), catchError(this.handleError));
   }
 }
