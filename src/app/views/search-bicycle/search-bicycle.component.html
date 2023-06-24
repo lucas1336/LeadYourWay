@@ -4,13 +4,15 @@
 
 <app-user-header></app-user-header>
 
-<div class="input-group search mx-auto mt-8 pb-3 mb-4">
+<div class="input-group search mx-auto pb-3 mb-4">
   <input type="search" class="form-control rounded" placeholder="Ex. Bicicleta de montaña" aria-label="Search" aria-describedby="search-addon" />
   <button type="button" class="btn btn-primary" (click)="search()">Search</button>
 </div>
 
 <div class="d-flex flex-column">
-  <h2>Seleccione un rango de fechas:</h2>
+  <div class="center">
+    <h2>Seleccione un rango de fechas:</h2>
+  </div>
   <ngb-datepicker
     *ngIf="this.today"
     [minDate]="{ year: today.year, month: today.month, day: today.day + 1 }"

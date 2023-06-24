@@ -34,9 +34,7 @@ export class EditInfoComponent {
   }
 
   updateOffer() {
-    console.log('Clicked');
     this.userService.updateItem(String(this.id), this.UserData).subscribe((response: any) => {
-      console.log(response);
       this.router.navigate(['/profile']);
     });
   }

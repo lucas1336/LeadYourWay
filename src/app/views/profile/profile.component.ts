@@ -43,6 +43,10 @@ export class ProfileComponent {
 
   logout() {
     localStorage.removeItem('id');
+    localStorage.removeItem('bicycleId');
+    localStorage.removeItem('toDate');
+    localStorage.removeItem('fromDate');
+    localStorage.removeItem('token');
     this.rout.navigate(['/home']);
   }
 

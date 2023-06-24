@@ -154,6 +154,10 @@ export class ProductPurchaseComponent {
     this.precioSubTotal = this.totalCost || 0;
   }
 
+  getTotal() {
+    return this.precioSubTotal + this.precioSeguro;
+  }
+
   cardSelectChange(id: number) {
     this.selectedCardId = id;
   }

@@ -5,7 +5,7 @@
   <div class="card card-height">
     <img [src]="bicycle.imageData" class="card-img-top" alt="{{ bicycle.bicycleDescription }}" />
     <div class="card-body">
-      <h5 class="card-title">{{ bicycle.bicycleModel }}</h5>
+      <h5 class="card-title">{{ bicycle.bicycleName }}</h5>
       <p class="card-text description-height">{{ bicycle.bicycleDescription }}</p>
       <p class="card-text">Precio por hora: S/.{{ bicycle.bicyclePrice }}</p>
       <button class="btn btn-primary" (click)="onReserve(bicycle.id)">Rentar</button>
