@@ -39,7 +39,7 @@ export class BicycleService {
   }
 
   getItem(id: number): Observable<any> {
-    const httpOptions = this.getHttpOptions();
+    const httpOptions = this.getHttpOptions();  
     return this.http
       .get(`${this.base_Url}/${id}`, httpOptions)
       .pipe(retry(3), catchError(this.handleError));
