@@ -16,7 +16,7 @@ export class UserService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Content-type': 'application/json',
-      Authorization: 'Bearer ' + token,
+      Authorization: `Bearer ${token}`,
     });
     return { headers };
   }
@@ -31,33 +31,37 @@ export class UserService {
   }
 
   getList(): Observable<UserModule> {
+    const httpOptions = this.getHttpOptions();
     return this.http
-      .get<UserModule>(`${this.base_Url}`)
+      .get<UserModule>(`${this.base_Url}`, httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getItem(id: string | null): Observable<UserModule> {
+    const httpOptions = this.getHttpOptions();
     return this.http
-      .get<UserModule>(`${this.base_Url}/${id}`)
+      .get<UserModule>(`${this.base_Url}/${id}`, httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   updateItem(Id: string, item: any): Observable<UserModule> {
+    const httpOptions = this.getHttpOptions();
     return this.http
-      .put<UserModule>(`${this.base_Url}/${Id}`, JSON.stringify(item), this.httpOptions)
+      .put<UserModule>(`${this.base_Url}/${Id}`, JSON.stringify(item), httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   createItem(item: any): Observable<UserModule> {
-    console.log(item);
+    const httpOptions = this.getHttpOptions();
     return this.http
-      .post<UserModule>(`${this.base_Url}`, JSON.stringify(item), this.httpOptions)
+      .post<UserModule>(`${this.base_Url}`, JSON.stringify(item), httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   deleteItem(id: string): Observable<UserModule> {
+    const httpOptions = this.getHttpOptions();
     return this.http
-      .delete<UserModule>(`${this.base_Url}/${id}`, this.httpOptions)
+      .delete<UserModule>(`${this.base_Url}/${id}`, httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
