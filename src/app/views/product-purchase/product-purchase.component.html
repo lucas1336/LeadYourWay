@@ -204,19 +204,18 @@
                 <p class="dis fw-bold mb-3">Resumen</p>
                 <div class="d-flex align-items-center justify-content-between mb-2">
                   <p>Subtotal</p>
-                  <p>S/.{{ this.precioSubTotal }}</p>
+                  <p>S/.{{ precioSubTotal }}</p>
                 </div>
                 <div class="d-flex align-items-center justify-content-between mb-2">
                   <p>Seguro</p>
-                  <p>S/.{{ this.precioSeguro }}</p>
+                  <p>S/.{{ precioSeguro }}</p>
                 </div>
                 <div class="d-flex align-items-center justify-content-between mb-2">
                   <p class="fw-bold">Total</p>
-                  <p class="fw-bold">{{ getTotal() }}</p>
-                  <p class="fw-bold">S/.{{ getTotal() }}</p>
+                  <p class="fw-bold">S/.{{ precioSeguro }}</p>
                 </div>
                 <button mat-button class="btn btn-primary mt-2" (click)="validateCard()">
-                  Pay<span class="fas fa-dollar-sign px-1"></span>52.00
+                  Pay<span class="fas fa-dollar-sign px-1"></span>{{ totalCost }}
                 </button>
               </div>
             </div>

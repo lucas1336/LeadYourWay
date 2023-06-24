@@ -60,6 +60,7 @@ export class BicycleDetailComponent {
       const date2 = new Date(this.fromDate);
       const diffTime = Math.abs(date2.getTime() - date1.getTime());
       this.totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      console.log(this.totalDays);
     }
   }
 

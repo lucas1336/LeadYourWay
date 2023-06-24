@@ -23,8 +23,8 @@ export class ProductPurchaseComponent {
   userId = '';
   bikeId = '';
   selectedCardId = 0;
-  precioSubTotal = 0;
-  precioSeguro = 0;
+  precioSubTotal: number | undefined;
+  precioSeguro: number | undefined;
   checkedSeguro1 = false;
   checkedSeguro2 = false;
   checkedSeguro3 = false;
@@ -136,6 +136,7 @@ export class ProductPurchaseComponent {
       price += 39;
     }
     this.precioSeguro = price;
+    console.log(this.precioSeguro);
   }
 
   getNumberOfDays() {
@@ -144,6 +145,7 @@ export class ProductPurchaseComponent {
       const date2 = new Date(this.fromDate);
       const diffTime = Math.abs(date2.getTime() - date1.getTime());
       this.totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      console.log(this.totalDays);
     }
   }
 
@@ -152,10 +154,7 @@ export class ProductPurchaseComponent {
       this.totalCost = this.totalDays * this.bicycle.bicyclePrice;
     }
     this.precioSubTotal = this.totalCost || 0;
-  }
-
-  getTotal() {
-    return this.precioSubTotal + this.precioSeguro;
+    console.log(this.totalCost);
   }
 
   cardSelectChange(id: number) {
