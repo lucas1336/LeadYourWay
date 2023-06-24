@@ -50,7 +50,6 @@ export class EditInfoComponent {
       this.UserData.userEmail = String(response.userEmail);
       this.UserData.userPhone = String(response.userPhone);
       this.UserData.userBirthDate = new Date(response.userBirthDate);
-      this.UserData.userPassword = String(response.userPassword);
       this.UserData.imageData = String(response.imageData);
     });
   }

@@ -5,10 +5,9 @@ export interface UserModule {
   userFirstName: string;
   userLastName: string;
   userEmail: string;
-  userPassword: string;
   userPhone: string;
-  imageData: string;
   userBirthDate: Date;
+  imageData: string;
   bicycles: BicycleModule[];
   cards: CardModule[];
 }
