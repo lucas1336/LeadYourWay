@@ -16,7 +16,7 @@ export class BicycleService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Content-type': 'application/json',
-      'Authorization': 'Bearer ' + token
+      'Authorization': `Bearer ${token}`
     });
     return { headers };
   }
@@ -35,11 +35,11 @@ export class BicycleService {
 
   getList(): Observable<any> {
     const httpOptions = this.getHttpOptions();
-    return this.http.get(`${this.base_Url}`, httpOptions).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${this.base_Url}`).pipe(retry(3), catchError(this.handleError));
   }
 
   getItem(id: number): Observable<any> {
-    const httpOptions = this.getHttpOptions();
+    const httpOptions = this.getHttpOptions();  
     return this.http
       .get(`${this.base_Url}/${id}`, httpOptions)
       .pipe(retry(3), catchError(this.handleError));
