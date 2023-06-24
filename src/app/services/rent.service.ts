@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse,HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
@@ -10,12 +10,12 @@ import { RentModule } from '../models/rent.module';
 export class RentService {
   private base_Url = 'http://localhost:8080/api/leadyourway/v1/rents';
   constructor(private http: HttpClient) {}
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-type': 'application/json',
-      'Authorization': 'Bearer '+localStorage.getItem("token")
-    }),
-  };
+  //httpOptions = {
+  //headers: new HttpHeaders({
+  //'Content-type': 'application/json',
+  //'Authorization': 'Bearer '+localStorage.getItem("token")
+  //}),
+  //};
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -30,6 +30,18 @@ export class RentService {
   }
 
   createItem(rent: RentModule): Observable<any> {
-    return this.http.post(`${this.base_Url}`, rent).pipe(retry(3), catchError(this.handleError));
+    const httpOptions = this.getHttpOptions();
+    return this.http
+      .post(`${this.base_Url}`, rent, httpOptions)
+      .pipe(retry(3), catchError(this.handleError));
+  }
+
+  private getHttpOptions(): { headers: HttpHeaders } {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    return { headers };
   }
 }
