@@ -103,10 +103,6 @@ export class AddBicycleComponent {
       this.router.navigate(['/search']);
     });
 
-    alert(
-      'Ahora se estan presentando problemas por nuestra parte, disculpe las molestias, porfavor vuelva a intentarlo mas tarde'
-    );
-
     this.firstFormGroup.reset();
     this.secondFormGroup.reset();
     this.thirdFormGroup.reset();
