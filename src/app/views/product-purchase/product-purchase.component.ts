@@ -136,7 +136,7 @@ export class ProductPurchaseComponent {
       price += 39;
     }
     this.precioSeguro = price;
-    console.log(this.precioSeguro);
+    console.log(`Precio seguro: $${this.precioSeguro}`);
   }
 
   getNumberOfDays() {
@@ -145,7 +145,7 @@ export class ProductPurchaseComponent {
       const date2 = new Date(this.fromDate);
       const diffTime = Math.abs(date2.getTime() - date1.getTime());
       this.totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      console.log(this.totalDays);
+      console.log(`Total days: ${this.totalDays} days`);
     }
   }
 
@@ -154,7 +154,7 @@ export class ProductPurchaseComponent {
       this.totalCost = this.totalDays * this.bicycle.bicyclePrice;
     }
     this.precioSubTotal = this.totalCost || 0;
-    console.log(this.totalCost);
+    console.log(`Total cost: $${this.totalCost}`);
   }
 
   cardSelectChange(id: number) {
