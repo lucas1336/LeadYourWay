@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { BicycleModule } from 'src/app/models/bicycle-model.model';
+import { BicycleModule } from 'src/app/models/bicycle.module';
 
 @Component({
   selector: 'app-card-bicyle',

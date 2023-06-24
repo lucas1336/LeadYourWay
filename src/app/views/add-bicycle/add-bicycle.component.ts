@@ -3,7 +3,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BicycleService } from 'src/app/services/bicycle.service';
 import { UserService } from 'src/app/services/user.service';
-import { BicycleModule } from 'src/app/models/bicycle-model.model';
+import { BicycleModule } from 'src/app/models/bicycle.module';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogBoxComponent } from 'src/app/components/toasts/dialog-box/dialog-box.component';
 @Component({

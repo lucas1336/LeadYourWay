@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { UserModule } from '../models/user/user.module';
+import { UserModule } from '../models/user.module';
 
 @Injectable({
   providedIn: 'root',
@@ -44,8 +44,9 @@ export class UserService {
   }
 
   createItem(item: any): Observable<UserModule> {
+    console.log(item);
     return this.http
-      .post<UserModule>(`${this.base_Url}/users`, JSON.stringify(item), this.httpOptions)
+      .post<UserModule>(`http://localhost:8080/api/leadyourway/v1/auth/register`, item)
       .pipe(retry(2), catchError(this.handleError));
   }
 

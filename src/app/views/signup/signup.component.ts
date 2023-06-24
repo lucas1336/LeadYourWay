@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Register } from 'src/app/models/register-model';
-import { UserModule } from 'src/app/models/user/user.module';
+import { UserDtoModule } from 'src/app/models/userDto.module';
+import { UserModule } from 'src/app/models/user.module';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 
@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  RegisterData!: Register;
+  RegisterData!: UserDtoModule;
   constructor(private userService: UserService, private router: Router) {
-    this.RegisterData = {} as Register;
+    this.RegisterData = {} as UserDtoModule;
   }
   control!: boolean;
   userModel!: UserModule;
@@ -47,7 +47,7 @@ export class SignupComponent {
       currentDate.getMonth(),
       currentDate.getDate()
     );
-    this.RegisterData.userBirthDate = eighteenYearsAgo;
+    this.RegisterData.userBirthDate = '1999-01-01';
     this.RegisterData.imageData = 'https://robohash.org/' + this.RegisterData.userFirstName;
     this.userService.createItem(this.RegisterData).subscribe(
       (response) => {

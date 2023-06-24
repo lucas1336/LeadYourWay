@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserModule } from 'src/app/models/user/user.module';
-import { BicycleModule } from 'src/app/models/bicycle-model.model';
+import { UserModule } from 'src/app/models/user.module';
+import { BicycleModule } from 'src/app/models/bicycle.module';
 import { CardModule } from 'src/app/models/card.module';
 import { UserService } from 'src/app/services/user.service';
 import { BicycleService } from 'src/app/services/bicycle.service';

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
-import { BicycleModule } from 'src/app/models/bicycle-model.model';
+import { BicycleModule } from 'src/app/models/bicycle.module';
 import { BicycleService } from 'src/app/services/bicycle.service';
 import { Router } from '@angular/router';
 

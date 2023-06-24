@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserModule } from 'src/app/models/user/user.module';
-import { BicycleModule } from 'src/app/models/bicycle-model.model';
+import { UserModule } from 'src/app/models/user.module';
+import { BicycleModule } from 'src/app/models/bicycle.module';
 import { Router } from '@angular/router';
 
 @Component({

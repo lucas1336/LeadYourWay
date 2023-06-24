@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { BicycleModule } from 'src/app/models/bicycle-model.model';
+import { BicycleModule } from 'src/app/models/bicycle.module';
 import { BicycleService } from 'src/app/services/bicycle.service';
 import { Router } from '@angular/router';
-import { UserModule } from 'src/app/models/user/user.module';
+import { UserModule } from 'src/app/models/user.module';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({

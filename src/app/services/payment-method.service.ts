@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { catchError, Observable, retry, throwError} from 'rxjs';
-import { PaymentMethod } from '../models/payment-method/payment-method.model';
+import { catchError, Observable, retry, throwError } from 'rxjs';
+import { CardDtoModule } from '../models/cardDto.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PaymentMethodService {
   private base_Url = 'http://localhost:8080/api/leadyourway/v1';
@@ -27,7 +27,7 @@ export class PaymentMethodService {
       .get(`${this.base_Url}/cards/${id}`)
       .pipe(retry(3), catchError(this.handleError));
   }
-  createItem(id: string | null, card: PaymentMethod): Observable<any> {
+  createItem(id: string | null, card: CardDtoModule): Observable<any> {
     return this.http
       .post(`${this.base_Url}/cards/${id}`, card)
       .pipe(retry(3), catchError(this.handleError));
