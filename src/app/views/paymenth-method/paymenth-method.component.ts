@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { CardDtoModule } from 'src/app/models/cardDto.module';
 import { PaymentMethodService } from 'src/app/services/payment-method.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paymenth-method',
@@ -17,7 +18,11 @@ export class PaymenthMethodComponent {
   year: string;
   month: string;
 
-  constructor(private paymentMethodService: PaymentMethodService, private snackBar: MatSnackBar) {
+  constructor(
+    private paymentMethodService: PaymentMethodService,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {
     this.PaymentData = {} as CardDtoModule;
     this.year = '';
     this.month = '';
@@ -106,10 +111,11 @@ export class PaymenthMethodComponent {
     console.log('PaymentData:', this.PaymentData);
     this.paymentMethodService.createItem(this.userId, this.PaymentData).subscribe(
       (response) => {
-        console.log('Response:', response);
+        this.openSnackBar('Su tarjeta fue agregada con exito');
+        this.router.navigate(['/profile']);
       },
       (error) => {
-        console.log('Error:', error);
+        this.openSnackBar('Error adding payment method');
       }
     );
   }

@@ -13,9 +13,18 @@ export class PaymentMethodService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-type': 'application/json',
-      'Authorization': 'Bearer '+localStorage.getItem("token")
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
     }),
   };
+
+  private getHttpOptions(): { headers: HttpHeaders } {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    return { headers };
+  }
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -30,13 +39,15 @@ export class PaymentMethodService {
   }
 
   getItem(id: number): Observable<any> {
+    const httpOptions = this.getHttpOptions();
     return this.http
-      .get(`${this.base_Url}/${id}`)
+      .get(`${this.base_Url}/${id}`, httpOptions)
       .pipe(retry(3), catchError(this.handleError));
   }
   createItem(id: string | null, card: CardDtoModule): Observable<any> {
+    const httpOptions = this.getHttpOptions();
     return this.http
-      .post(`${this.base_Url}/${id}`, card)
+      .post(`${this.base_Url}/${id}`, card, httpOptions)
       .pipe(retry(3), catchError(this.handleError));
   }
 }
