@@ -70,6 +70,11 @@ export class SearchBicycleComponent {
     this.today = calendar.getToday();
     this.fromDate = calendar.getNext(calendar.getToday(), 'd', 1);
     this.toDate = calendar.getNext(this.fromDate, 'd', 3);
+    localStorage.setItem(
+      'fromDate',
+      `${this.fromDate.year}-${this.fromDate.month}-${this.fromDate.day}`
+    );
+    localStorage.setItem('toDate', `${this.toDate.year}-${this.toDate.month}-${this.toDate.day}`);
   }
 
   onDateSelection(date: NgbDate) {

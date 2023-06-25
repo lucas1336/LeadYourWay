@@ -12,7 +12,7 @@
           <p class="card-text"><b>Precio por hora de la bicicleta:</b></p>
           <p class="card-text">S/.{{ bicycle.bicyclePrice }} por dia</p>
           <p class="card-text"><b>Costo aproximado según las fechas seleccionadas:</b></p>
-          <p class="card-text">S/.{{ totalCost }}</p>
+          <p class="card-text">S/.{{ this.getTotalCost() }}</p>
           <button class="btn btn-primary" (click)="onReserve()">Rentar</button>
         </div>
       </div>

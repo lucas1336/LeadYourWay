@@ -1,5 +1,5 @@
 <app-user-header></app-user-header>
-<section class="">
+<section *ngIf="user">
   <div class="container py-5">
     <div class="row">
       <div class="col-lg-4">
@@ -62,3 +62,4 @@
     </div>
   </div>
 </section>
+<section *ngIf="!user">loading...</section>

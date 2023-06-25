@@ -7,7 +7,8 @@ import { CardDtoModule } from '../models/cardDto.module';
   providedIn: 'root',
 })
 export class PaymentMethodService {
-  private base_Url = 'http://localhost:8080/api/leadyourway/v1/cards';
+  //private base_Url = 'http://localhost:8080/api/leadyourway/v1/cards';
+  private base_Url = 'https://leadyourway.up.railway.app/api/leadyourway/v1/cards';
   constructor(private http: HttpClient) {}
 
   httpOptions = {

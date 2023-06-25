@@ -7,7 +7,7 @@ import { UserModule } from '../models/user.module';
   providedIn: 'root',
 })
 export class UserService {
-  base_Url = 'http://localhost:8080/api/leadyourway/v1/users';
+  base_Url = 'https://leadyourway.up.railway.app/api/leadyourway/v1/users';
   httpOptions = this.getHttpOptions(); // Agregar la propiedad httpOptions
 
   constructor(private http: HttpClient) {}
@@ -81,7 +81,8 @@ export class UserService {
   providedIn: 'root',
 })
 export class AuthService {
-  base_Url = 'http://localhost:8080/api/leadyourway/v1/auth';
+  //base_Url = 'http://localhost:8080/api/leadyourway/v1/auth';
+  base_Url = 'https://leadyourway.up.railway.app/api/leadyourway/v1/auth';
   constructor(private http: HttpClient) {}
 
   httpOptions = {
