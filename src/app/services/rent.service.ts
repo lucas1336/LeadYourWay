@@ -32,7 +32,7 @@ export class RentService {
 
   createItem(rent: RentModule): Observable<any> {
     const httpOptions = this.getHttpOptions();
-    return this.http.post(`${this.base_Url}`, rent).pipe(retry(3), catchError(this.handleError));
+    return this.http.post(`${this.base_Url}`, rent, httpOptions).pipe(retry(3), catchError(this.handleError));
   }
 
   private getHttpOptions(): { headers: HttpHeaders } {
