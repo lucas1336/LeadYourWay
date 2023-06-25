@@ -11,12 +11,12 @@ export class RentService {
   //private base_Url = 'http://localhost:8080/api/leadyourway/v1/rents';
   private base_Url = 'https://leadyourway.up.railway.app/api/leadyourway/v1/rents';
   constructor(private http: HttpClient) {}
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-type': 'application/json',
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
-    }),
-  };
+  //httpOptions = {
+  //headers: new HttpHeaders({
+  //'Content-type': 'application/json',
+  //'Authorization': 'Bearer '+localStorage.getItem("token")
+  //}),
+  //};
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -31,6 +31,16 @@ export class RentService {
   }
 
   createItem(rent: RentModule): Observable<any> {
+    const httpOptions = this.getHttpOptions();
     return this.http.post(`${this.base_Url}`, rent).pipe(retry(3), catchError(this.handleError));
+  }
+
+  private getHttpOptions(): { headers: HttpHeaders } {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    return { headers };
   }
 }

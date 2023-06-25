@@ -70,7 +70,7 @@ export class BicycleService {
   getBicyclesByDateRange(startDate: string, endDate: string): Observable<any> {
     const httpOptions = this.getHttpOptions();
     return this.http
-      .get(`${this.base_Url}/available?start_date=${startDate}&end_date=${endDate}`, httpOptions)
+      .get(`${this.base_Url}/available?start_date=${startDate}&end_date=${endDate}`)
       .pipe(retry(3), catchError(this.handleError));
   }
 }

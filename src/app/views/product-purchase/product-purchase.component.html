@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
-<div class="principal-container">
+<div *ngIf="bicycle" class="principal-container">
   <div class="container d-lg-flex">
     <div class="box-1 bg-light user">
-      <div class="d-flex align-items-center mb-3 custom-div">
+      <div *ngIf="user" class="d-flex align-items-center mb-3 custom-div">
         <img src="{{ user.imageData }}" class="pic rounded-circle" alt="" />
         <p class="ps-2 name">{{ user.userFirstName }}</p>
       </div>
@@ -148,7 +148,7 @@
                   <label class="form-check-label" for="visa">
                     <div class="d-flex align-items-xxl-center">
                       <div class="fab fa-cc-visa"></div>
-                      <div class="card-details">
+                      <div *ngIf="cardArray[0]" class="card-details">
                         <span class="card-name">{{ cardArray[0].cardHolder }}</span>
                         <br />
                         <span class="card-info">**** **** **** {{ formatCardNumber(cardArray[0].cardNumber) }}</span>
@@ -161,14 +161,14 @@
               </div>
             </div>
 
-            <div class="card card-atm border rounded mt-3" *ngIf="cardArray[1].cardHolder">
+            <div *ngIf="cardArray[1]" class="card card-atm border rounded mt-3">
               <div class="card-body">
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="card" id="mastercard" (change)="cardSelectChange(cardArray[0].id)" />
                   <label class="form-check-label" for="mastercard">
                     <div class="d-flex align-items-xxl-center">
                       <div class="fab fa-cc-mastercard"></div>
-                      <div class="card-details">
+                      <div *ngIf="cardArray[1]" class="card-details">
                         <span class="card-name">{{ cardArray[1].cardHolder }}</span>
                         <br />
                         <span class="card-info">**** **** **** {{ formatCardNumber(cardArray[1].cardNumber) }}</span>
@@ -204,18 +204,18 @@
                 <p class="dis fw-bold mb-3">Resumen</p>
                 <div class="d-flex align-items-center justify-content-between mb-2">
                   <p>Subtotal</p>
-                  <p>S/.{{ precioSubTotal }}</p>
+                  <p>S/.{{ this.precioSubTotal }}</p>
                 </div>
                 <div class="d-flex align-items-center justify-content-between mb-2">
                   <p>Seguro</p>
-                  <p>S/.{{ precioSeguro }}</p>
+                  <p>S/.{{ this.precioSeguro }}</p>
                 </div>
                 <div class="d-flex align-items-center justify-content-between mb-2">
                   <p class="fw-bold">Total</p>
-                  <p class="fw-bold">S/.{{ precioSeguro }}</p>
+                  <p class="fw-bold">S/.{{ this.precioSubTotal + this.precioSeguro }}</p>
                 </div>
                 <button mat-button class="btn btn-primary mt-2" (click)="validateCard()">
-                  Pay<span class="fas fa-dollar-sign px-1"></span>{{ totalCost }}
+                  Pay<span class="fas fa-dollar-sign px-1"></span>{{ this.totalCost }}
                 </button>
               </div>
             </div>
