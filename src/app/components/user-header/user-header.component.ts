@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-header',
@@ -9,12 +10,18 @@ export class UserHeaderComponent {
   isMenuCollapsed = true;
   userLoggedIn = false;
 
-  constructor() {
-    localStorage.getItem('id') ? (this.userLoggedIn = true) : false;
-    console.log(this.userLoggedIn);
-  }
+  constructor(private userService: UserService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userService.getItem(localStorage.getItem('id')).subscribe(
+      (user) => {
+        this.userLoggedIn = true;
+      },
+      (error) => {
+        this.userLoggedIn = false;
+      }
+    );
+  }
 
   toggleSidenav(): void {
     // Logic to toggle the side nav

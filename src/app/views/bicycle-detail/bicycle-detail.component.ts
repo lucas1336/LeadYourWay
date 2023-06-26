@@ -19,7 +19,7 @@ export class BicycleDetailComponent {
   toDate: string | null;
   fromDate: string | null;
   totalDays: number | undefined;
-  totalCost: number | undefined;
+  totalCost = 0;
 
   constructor(
     private bicycleService: BicycleService,
@@ -39,10 +39,16 @@ export class BicycleDetailComponent {
 
   getBicycle(): void {
     if (this.bicycleId) {
-      this.bicycleService.getItem(this.bicycleId).subscribe((bicycle) => {
-        this.bicycle = bicycle;
-        this.getTotalCost();
-      });
+      this.bicycleService.getItem(this.bicycleId).subscribe(
+        (bicycle) => {
+          this.bicycle = bicycle;
+          this.getTotalCost();
+        },
+        (error) => {
+          alert('Para reservar debes tener una cuenta\nSera redirigido a la pagina de registro');
+          this.router.navigate(['/signup']);
+        }
+      );
     }
   }
   getStarGradient(rating: number): string {
@@ -67,7 +73,10 @@ export class BicycleDetailComponent {
   getTotalCost() {
     if (this.totalDays && this.bicycle) {
       this.totalCost = this.totalDays * this.bicycle.bicyclePrice;
+    } else {
+      this.totalCost = 0;
     }
+    return this.totalCost;
   }
 
   onReserve() {

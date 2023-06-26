@@ -34,9 +34,14 @@ export class EditInfoComponent {
   }
 
   updateOffer() {
-    this.userService.updateItem(String(this.id), this.UserData).subscribe((response: any) => {
-      this.router.navigate(['/profile']);
-    });
+    this.userService.updateItem(String(this.id), this.UserData).subscribe(
+      (response: any) => {
+        this.router.navigate(['/profile']);
+      },
+      (error: any) => {
+        this.router.navigate(['/profile']);
+      }
+    );
   }
 
   cancelEdit() {

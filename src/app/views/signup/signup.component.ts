@@ -33,7 +33,6 @@ export class SignupComponent {
       this.RegisterData.userFirstName = String(this.nombreControl.value);
       this.RegisterData.userEmail = String(this.emailFormControl.value);
       this.RegisterData.userPassword = this.passwordControl.value;
-      console.log(this.RegisterData);
       this.control = true;
     } else {
       console.log('Incomplete data');

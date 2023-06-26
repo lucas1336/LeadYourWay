@@ -57,7 +57,6 @@ export class SearchBicycleComponent {
   getAllBicycles(): void {
     this.bicycleService.getList().subscribe((bicycles) => {
       this.bicycles = bicycles;
-      console.log(this.bicycles);
     });
   }
 
