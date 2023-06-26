@@ -7,8 +7,12 @@ import { Component } from '@angular/core';
 })
 export class UserHeaderComponent {
   isMenuCollapsed = true;
+  userLoggedIn = false;
 
-  constructor() {}
+  constructor() {
+    localStorage.getItem('id') ? (this.userLoggedIn = true) : false;
+    console.log(this.userLoggedIn);
+  }
 
   ngOnInit(): void {}
 

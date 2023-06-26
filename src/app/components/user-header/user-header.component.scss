@@ -1,21 +1,42 @@
 #navbar-menu {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #ffe9e1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffe9e1;
 }
 .btn-end {
-    margin-left: auto;
+  margin-left: auto;
 }
-.nav-link{
-    font-size:16px;
-    color: black;
+.nav-link {
+  font-size: 16px;
+  color: black;
 }
-#btn-profile{
-    border-color: #d78477;
-    color:#d78477;
-    font-weight: 500;
+#btn-profile {
+  border-color: #d78477;
+  color: #d78477;
+  font-weight: 500;
 }
-#btn-profile:hover{
-    border-color: #d78477;
-    background-color: #d78477;
-    color: #fff;
+#btn-profile:hover {
+  border-color: #d78477;
+  background-color: #d78477;
+  color: #fff;
+}
+.btn-outline-primary {
+  border-color: #d78477;
+  color: #d78477;
+  font-weight: 500;
+}
+
+.btn-outline-primary:hover {
+  border-color: #d78477;
+  background-color: #d78477;
+  color: #fff;
+}
+nav.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffe9e1;
+}
+.navbar-brand {
+  margin-left: 2%;
+}
+.btn-end {
+  margin-left: auto;
 }

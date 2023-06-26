@@ -2,9 +2,18 @@
   max-width: 25%;
 }
 
+.rounded {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
 mat-paginator {
   margin-top: auto;
   margin-bottom: 2rem;
+}
+
+.center {
+  text-align: center;
 }
 
 .container {

@@ -13,8 +13,12 @@
           <a class="nav-link text-dark" href="/search">Buscar</a>
         </li>
       </ul>
-      <div class="btn-end">
+      <div class="btn-end" *ngIf="userLoggedIn">
         <a class="btn nav-item btn-outline-primary mx-3" href="/profile" id="btn-profile">Perfil</a>
+      </div>
+      <div class="btn-end" *ngIf="!userLoggedIn">
+        <a class="btn nav-item btn-outline-primary mx-3" href="/login"> Iniciar Sesión </a>
+        <a class="btn nav-item bg-dark text-light m-3" href="/signup"> Registrarse </a>
       </div>
     </div>
   </nav>

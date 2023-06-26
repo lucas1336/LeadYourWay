@@ -9,8 +9,11 @@
   <button type="button" class="btn btn-primary" (click)="search()">Search</button>
 </div>
 
-<div class="d-flex flex-column">
+<div class="center">
   <h2>Seleccione un rango de fechas:</h2>
+</div>
+
+<div class="d-flex flex-column">
   <ngb-datepicker
     *ngIf="this.today"
     [minDate]="{ year: today.year, month: today.month, day: today.day + 1 }"
