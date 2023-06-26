@@ -1,18 +1,18 @@
 <div *ngIf="bicycle">
   <div class="container-md">
     <div class="card m-3 p-3">
-      <h1 class="card-title text-center fw-bold">{{ bicycle.bicycleModel }}</h1>
+      <h1 class="card-title text-center fw-bold">{{ bicycle.bicycleName }}</h1>
       <div class="containerImgAndData">
         <div class="containerBox text-center">
           <img [src]="bicycle.imageData" class="card-img-top" alt="{{ bicycle.bicycleDescription }}" />
         </div>
-        <div class="card-body containerBox">
+        <div class="card-body containerBox vertical-center">
           <p class="card-text"><b>Descripción de la bicicleta:</b></p>
           <p class="card-text">{{ bicycle.bicycleDescription }}</p>
           <p class="card-text"><b>Precio por hora de la bicicleta:</b></p>
           <p class="card-text">S/.{{ bicycle.bicyclePrice }} por dia</p>
           <p class="card-text"><b>Costo aproximado según las fechas seleccionadas:</b></p>
-          <p class="card-text">S/.{{ totalCost }}</p>
+          <p class="card-text">S/.{{ this.getTotalCost() }}</p>
           <button class="btn btn-primary" (click)="onReserve()">Rentar</button>
         </div>
       </div>

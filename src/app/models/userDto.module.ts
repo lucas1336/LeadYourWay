@@ -1,9 +1,9 @@
-export interface Register {
+export interface UserDtoModule {
   userFirstName: string;
   userLastName: string;
   userEmail: string;
   userPassword: string;
   userPhone: string;
-  userBirthDate: Date;
+  userBirthDate: string;
   imageData: string;
 }

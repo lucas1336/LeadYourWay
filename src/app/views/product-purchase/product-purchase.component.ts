@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserModule } from 'src/app/models/user/user.module';
-import { BicycleModule } from 'src/app/models/bicycle-model.model';
+import { UserModule } from 'src/app/models/user.module';
+import { BicycleModule } from 'src/app/models/bicycle.module';
 import { CardModule } from 'src/app/models/card.module';
 import { UserService } from 'src/app/services/user.service';
 import { BicycleService } from 'src/app/services/bicycle.service';
@@ -23,15 +23,15 @@ export class ProductPurchaseComponent {
   userId = '';
   bikeId = '';
   selectedCardId = 0;
-  precioSubTotal = 0;
-  precioSeguro = 0;
+  precioSubTotal = 0; ///////////////////////////////////////////////////
+  precioSeguro = 0; ///////////////////////////////////////////////////
+  totalCost = 0; ///////////////////////////////////////////////////
   checkedSeguro1 = false;
   checkedSeguro2 = false;
   checkedSeguro3 = false;
   toDate: string | null;
   fromDate: string | null;
   totalDays: number | undefined;
-  totalCost: number | undefined;
 
   constructor(
     private router: Router,
@@ -55,7 +55,6 @@ export class ProductPurchaseComponent {
   getUser() {
     this.userService.getItem(this.userId).subscribe((response: any) => {
       this.user = response;
-      console.log(response);
       var mainFound = false;
       var oneCard = false;
       forEach(this.user.cards, (card) => {
@@ -87,16 +86,25 @@ export class ProductPurchaseComponent {
     };
     confirm('¿Desea realizar la compra?');
 
-    this.rentService.createItem(this.rent).subscribe((response: any) => {
-      const dialogRef: MatDialogRef<any> = this.dialog.open(DialogContentComponent, {
-        data: 'Purchase Complete',
-      });
-
-      dialogRef.afterClosed().subscribe(() => {
-        localStorage.removeItem('bicycleId');
-        this.router.navigate(['/search']);
-      });
-    });
+    this.rentService.createItem(this.rent).subscribe(
+      (response: any) => {
+        const dialogRef: MatDialogRef<any> = this.dialog.open(DialogContentComponent, {
+          data: 'Purchase Complete',
+        });
+        dialogRef.afterClosed().subscribe(() => {
+          localStorage.removeItem('bicycleId');
+          this.router.navigate(['/search']);
+        });
+      },
+      (error: any) => {
+        const dialogRef: MatDialogRef<any> = this.dialog.open(DialogContentComponent, {
+          data: 'Purchase Failed',
+        });
+        dialogRef.afterClosed().subscribe(() => {
+          this.router.navigate(['/search']);
+        });
+      }
+    );
   }
 
   formatCardNumber(cardNumber: string) {
@@ -136,6 +144,7 @@ export class ProductPurchaseComponent {
       price += 39;
     }
     this.precioSeguro = price;
+    this.totalCost = this.precioSubTotal + this.precioSeguro;
   }
 
   getNumberOfDays() {

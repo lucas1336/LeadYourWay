@@ -1,4 +1,4 @@
-import { BicycleModule } from 'src/app/models/bicycle-model.model';
+import { BicycleModule } from 'src/app/models/bicycle.module';
 import { CardModule } from 'src/app/models/card.module';
 
 export interface UserModule {
@@ -8,7 +8,7 @@ export interface UserModule {
   userPassword: string;
   userPhone: string;
   imageData: string;
-  userBirthDate: Date;
+  userBirthDate: string;
   bicycles: BicycleModule[];
   cards: CardModule[];
 }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { UserModule } from 'src/app/models/user/user.module';
+import { UserModule } from 'src/app/models/user.module';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class PaymentMethodsComponent {
   @Input() user!: UserModule;
   constructor(private router: Router) {}
-  onSubmit(){
+  onSubmit() {
     this.router.navigate(['/payment-method']);
   }
 }

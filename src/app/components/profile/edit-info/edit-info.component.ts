@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-import { UserModule } from 'src/app/models/user/user.module';
+import { UserModule } from 'src/app/models/user.module';
 
 import * as _ from 'lodash';
 
@@ -49,7 +49,7 @@ export class EditInfoComponent {
       this.UserData.userLastName = String(response.userLastName);
       this.UserData.userEmail = String(response.userEmail);
       this.UserData.userPhone = String(response.userPhone);
-      this.UserData.userBirthDate = new Date(response.userBirthDate);
+      this.UserData.userBirthDate = String(response.userBirthDate);
       this.UserData.userPassword = String(response.userPassword);
       this.UserData.imageData = String(response.imageData);
     });

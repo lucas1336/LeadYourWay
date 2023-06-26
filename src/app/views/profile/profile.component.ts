@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
-import { UserModule } from 'src/app/models/user/user.module';
-import { UserInfo } from 'src/app/models/user/userinformation.module';
+import { UserModule } from 'src/app/models/user.module';
 import { UserService } from 'src/app/services/user.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -13,7 +12,6 @@ import { Router } from '@angular/router';
 export class ProfileComponent {
   user!: UserModule;
   UserData!: UserModule;
-  UserInfoData!: UserInfo;
   selectedDate!: Date;
   dataSource = new MatTableDataSource();
 
@@ -21,14 +19,8 @@ export class ProfileComponent {
   fromDate: NgbDate;
   toDate: NgbDate | null = null;
 
-  constructor(
-    private userService: UserService,
-    private userInfoService: UserService,
-    private rout: Router,
-    calendar: NgbCalendar
-  ) {
+  constructor(private userService: UserService, private rout: Router, calendar: NgbCalendar) {
     this.UserData = {} as UserModule;
-    this.UserInfoData = {} as UserInfo;
 
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
@@ -51,14 +43,13 @@ export class ProfileComponent {
 
   logout() {
     localStorage.removeItem('id');
+    localStorage.removeItem('bicycleId');
+    localStorage.removeItem('toDate');
+    localStorage.removeItem('fromDate');
+    localStorage.removeItem('token');
     this.rout.navigate(['/home']);
   }
 
-  getUserInfoById(id: string | null) {
-    this.userInfoService.getItem(id).subscribe((response: any) => {
-      this.UserInfoData = response;
-    });
-  }
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
       this.fromDate = date;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-import { UserModule } from 'src/app/models/user/user.module';
+import { AuthService, UserService } from 'src/app/services/user.service';
+import { UserModule } from 'src/app/models/user.module';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,14 +15,19 @@ export class LoginComponent {
   wrongCredentials: boolean = false;
   user!: UserModule;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   onSubmit() {
     this.email = this.email.trim();
     this.password = this.password.trim();
-    this.userService.login(this.email, this.password).subscribe(
+    this.authService.login(this.email, this.password).subscribe(
       (response: any) => {
-        localStorage.setItem('id', String(response));
+        localStorage.setItem('token', response.access_token);
+        localStorage.setItem('id', response.user_id);
         this.router.navigate(['/search']);
       },
       (error: any) => {

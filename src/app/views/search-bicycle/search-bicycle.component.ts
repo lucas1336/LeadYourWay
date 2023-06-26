@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
-import { BicycleModule } from 'src/app/models/bicycle-model.model';
+import { BicycleModule } from 'src/app/models/bicycle.module';
 import { BicycleService } from 'src/app/services/bicycle.service';
+import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-bicycle.component.scss'],
 })
 export class SearchBicycleComponent {
-  model!: NgbDateStruct; // Add the model property here
+  model!: NgbDateStruct;
+  loggedIn: boolean = false;
 
   hoveredDate: NgbDate | null = null;
 
@@ -23,6 +25,9 @@ export class SearchBicycleComponent {
 
   ngOnInit(): void {
     this.getAllBicycles();
+    this.userService.getItem(localStorage.getItem('id')).subscribe((user) => {
+      this.loggedIn = true;
+    });
   }
 
   getBicycles(): void {
@@ -52,17 +57,24 @@ export class SearchBicycleComponent {
   getAllBicycles(): void {
     this.bicycleService.getList().subscribe((bicycles) => {
       this.bicycles = bicycles;
+      console.log(this.bicycles);
     });
   }
 
   constructor(
     calendar: NgbCalendar,
     private bicycleService: BicycleService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
     this.today = calendar.getToday();
     this.fromDate = calendar.getNext(calendar.getToday(), 'd', 1);
     this.toDate = calendar.getNext(this.fromDate, 'd', 3);
+    localStorage.setItem(
+      'fromDate',
+      `${this.fromDate.year}-${this.fromDate.month}-${this.fromDate.day}`
+    );
+    localStorage.setItem('toDate', `${this.toDate.year}-${this.toDate.month}-${this.toDate.day}`);
   }
 
   onDateSelection(date: NgbDate) {

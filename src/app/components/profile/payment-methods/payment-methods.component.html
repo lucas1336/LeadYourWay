@@ -1,16 +1,17 @@
 <div class="card-body p-0 d-flex flex-column justify-contnet-center">
-  <p class="fw-normal m-3">Métodos de pago</p>
-  <ul class="list-group list-group-flush rounded-3">
-    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-      <i class="fa-brands fa-paypal fa-lg" style="color: #003087"></i>
-      <p class="mb-0">{{ user.userFirstName }}</p>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-      <i class="fa-brands fa-cc-visa" style="color: #1a1f71"></i>
-      <p class="mb-0">1234 1234 4321 1235</p>
-    </li>
-  </ul>
-  <div class="row ">
+  <div *ngIf="user.cards.length > 0">
+    <p class="fw-normal m-3">Métodos de pago</p>
+    <ul class="list-group list-group-flush rounded-3">
+      <li *ngFor="let card of user.cards" class="list-group-item d-flex justify-content-between align-items-center p-3">
+        <i class="fa-brands fa-cc-visa" style="color: #1a1f71"></i>
+        <p class="mb-0">{{ card.cardNumber[0] }}*** **** **** {{ card.cardNumber.slice(12) }}</p>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="user.cards.length == 0">
+    <p class="fw-normal m-3">No tienes métodos de pago</p>
+  </div>
+  <div class="row">
     <div class="d-flex justify-content-center mb-2">
       <button type="button" class="btn btn-outline-primary ms-1 btn-primary" [routerLink]="['/payment/edit']">Editar información</button>
       <button type="button" class="btn btn-outline-primary ms-1 btn-primary" (click)="onSubmit()">Añadir método</button>
